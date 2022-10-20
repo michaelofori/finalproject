@@ -25,7 +25,7 @@
 			<div class="row justify-content-center">
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap py-5">
-						<div class="img d-flex align-items-center justify-content-center" style="background-image: url(images/bg.jpg);"></div>
+						<div class="img d-flex align-items-center justify-content-center" style="background-image: url(images/zeroday.jpg);"></div>
 						<h3 class="text-center mb-0">Welcome</h3>
 						<p class="text-center">Sign in by entering the information below</p>
 
@@ -74,13 +74,14 @@
 
 							<div class="form-group">
 							<span id="wrong_pass_alert"></span>
-								<button type="submit" id="register_user" name="register_user" onclick="wrong_pass_alert()" class="btn form-control btn-primary rounded submit px-3">Get Started</button>
+								<button type="submit" id="register_user" name="register_user" onclick="wrong_pass_alert()" 
+								class="btn form-control btn-primary rounded submit px-3">Get Started</button>
 							</div>
 						</form>
 
 						<div class="w-100 text-center mt-4 text">
 							<p class="mb-0">ALready have an account?</p>
-							<a href="#">Login</a>
+							<a href="login.php">Login</a>
 						</div>
 					</div>
 				</div>

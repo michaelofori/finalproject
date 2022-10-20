@@ -13,6 +13,7 @@
 <div class="container">
   <h2>LABS</h2>
   <a href="login/register.php" class="btn btn-info" role="button">Lab 1</a>
+  <a href="login/login.php" class="btn btn-info" role="button">Lab 2</a>
   <!-- <button type="button" class="btn btn-info">Button</button>
   <input type="button" class="btn btn-info" value="Input Button">
   <input type="submit" class="btn btn-info" value="Submit Button"> -->

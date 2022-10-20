@@ -1,47 +1,71 @@
-<!-- Source: https://codewithawa.com/posts/complete-user-registration-system-using-php-and-mysql-database -->
-
-<?php 
-    include('../settings/db_cred.php')
-?>
-
-
-
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
-    <title>User Login Page</title>
-    <style>
-    .background {
-        background-image: url("https://images.unsplash.com/photo-1551522435-a13afa10f103?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
-   
-    }
-  </style>
-    <link rel="stylesheet"  href="../css/formcss/css/style_login.css">
+	<title>Login 09</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="css/style.css">
+
 </head>
 
-<body class="background">
-    <div class="header" style="background-color:blue;" >
-        <h2>Login</h2>
-    </div>
+<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Shop PN</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap py-5">
+						<div class="img d-flex align-items-center justify-content-center" style="background-image: url(images/zeus.jpg);"></div>
+						<h3 class="text-center mb-0">Login</h3>
+						<p class="text-center"></p>
 
-    <form method="post" action="login.php">
-        <?php include('errors.php'); ?>
-        <div class="input-group">
-            <label>Username</label>
-            <input type="text" name="username">
-        </div>
-        <div class="input-group">
-            <label>Password</label>
-            <input type="password" name="password">
-        </div>
-        <div class="input-group">
-            <button type="submit" class="btn" name="login_user" style="background-color:blueviolet;">Login</button>
-        </div>
-        <p>
-            Not yet a member? <a href="register.php">Sign up</a>
-        </p>
-    </form>
+						<form action="../actions/loginprocess.php" method="post"  class="login-form">
+
+							
+
+							<div class="form-group">
+								<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-address-card"></span></div>
+								<input type="email" class="form-control" placeholder="email" name="customer_email" required>
+							</div>
+
+							<div class="form-group">
+								<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
+								<input type="password" class="form-control" placeholder="Password" id= "customer_pass" name="customer_pass" required>
+							</div>
+
+							<div class="form-group">
+							<span id="wrong_pass_alert"></span>
+								<button type="submit" id="login_user" name="login_user"  
+								class="btn form-control btn-primary rounded submit px-3">Get Started</button>
+							</div>
+						</form>
+
+						<div class="w-100 text-center mt-4 text">
+							<p class="mb-0">Don't have an account?</p>
+							<a href="register.php">Sign In</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+
+
 </body>
 
 </html>

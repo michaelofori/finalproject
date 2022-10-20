@@ -18,18 +18,18 @@ require('../settings/db_class.php');
     }
 
      //select
-    public function selectOneContact($id){
+    public function selectOneCustomer($customer_id){
         //write the sql
-        $sql = "SELECT * FROM `phonebook` WHERE `pid` = '$id'";
+        $sql = "SELECT * FROM `customer` WHERE `customer_id` = '$customer_id'";
         //execute the sql
         return $this-> db_fetch_all($sql);
         
 
     }
 
-    public function selectAllContacts(){
+    public function selectAllCustomer(){
         //write the sql
-        $sql= "SELECT * FROM `phonebook` ";
+        $sql= "SELECT * FROM `customer` ";
         //execute the sql
         return $this-> db_fetch_all($sql);
 
@@ -38,14 +38,16 @@ require('../settings/db_class.php');
 
      //edit
 
-     public function editContact_cls($id,$pname,$pphoned){
-        $sql = "UPDATE `phonebook` SET `pname`='$pname',`pphoned` = '$pphoned' WHERE `pid` = '$id'";
+     public function editCustomer_cls($customer_id,$customer_name,$customer_country, $customer_city,
+     $customer_contact){
+        $sql = "UPDATE `customer` SET `customer_name`='$customer_name',`customer_country` = '$customer_country',
+        `customer_city` = '$customer_city',`customer_contact` = '$customer_contact' WHERE `customer_id` = '$customer_id'";
         return $this-> db_query($sql);
 
     } //delete
-    function deleteContact_cls($id){
+    function deleteCustomer_cls($customer_id){
          //write the sql
-         $sql= "DELETE FROM `phonebook` WHERE `pid` = '$id' ";
+         $sql= "DELETE FROM `customer` WHERE `customer_id` = '$customer_id' ";
          //execute the sql
          return $this-> db_query($sql);
 
