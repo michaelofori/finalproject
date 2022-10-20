@@ -21,4 +21,4 @@ if($conn === false){
 
 
 
-mysql://bcc8e00c3630df:b29c196e@us-cdbr-east-06.cleardb.net/heroku_4f0f1a3c315114e?reconnect=true
+<!-- mysql://bcc8e00c3630df:b29c196e@us-cdbr-east-06.cleardb.net/heroku_4f0f1a3c315114e?reconnect=true -->
