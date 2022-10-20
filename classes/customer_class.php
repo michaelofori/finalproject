@@ -27,6 +27,16 @@ require('../settings/db_class.php');
 
     }
 
+    //select
+    public function selectOneEmail($customer_email){
+        //write the sql
+        $sql = "SELECT * FROM `customer` WHERE `customer_email` = '$customer_email'";
+        //execute the sql
+        return $this-> db_fetch_one($sql);
+        
+
+    }
+
     public function selectAllCustomer(){
         //write the sql
         $sql= "SELECT * FROM `customer` ";
