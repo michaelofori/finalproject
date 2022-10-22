@@ -15,10 +15,10 @@ if(isset($_POST['register_user'])){
     $customer_country = $_POST["customer_country"];
     $customer_city = $_POST["customer_city"];
     $customer_contact = $_POST["customer_contact"];
-    $user_role = $_POST["user_role"];
+    $user_role = 1;
 
     registerCustomer_ctr($customer_name, $customer_email, $customer_pass, $customer_country, $customer_city,
-     $customer_contact, $customer_contact,$customer_role);
+     $customer_contact, $customer_contact,$user_role);
 
 
     header ('Location:../login/login.php');
