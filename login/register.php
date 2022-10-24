@@ -37,32 +37,32 @@
 							</div>
 
 							<div class="form-group">
-								<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
+								<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-address-card"></span></div>
 								<input type="email" class="form-control" placeholder="email" name="customer_email" required>
 							</div>
 
 							<div class="form-group">
-								<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
+								<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-key"></span></div>
 								<input type="password" class="form-control" placeholder="Password" id= "customer_pass" name="customer_pass" required>
 							</div>
 
 							<div class="form-group">
-								<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
+								<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-key"></span></div>
 								<input type="password" class="form-control" placeholder="Confirm Password" id="customer_pass2" name="customer_pass2" required onkeyup="validate_password()">
 							</div>
 
 							<div class="form-group">
-								<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
+								<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-globe"></span></div>
 								<input type="text" class="form-control" placeholder="country" name="customer_country" required>
 							</div>
 
 							<div class="form-group">
-								<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
+								<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-paper-plane"></span></div>
 								<input type="text" class="form-control" placeholder="city" name="customer_city" required>
 							</div>
 
 							<div class="form-group">
-								<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
+								<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-phone"></span></div>
 								<input type="text" class="form-control" placeholder="contact" name="customer_contact" required pattern="[0-9]{10}" onkeypress='validate(event)' oninvalid="this.setCustomValidity('Phone number should be 10 numbers')" oninput="this.setCustomValidity('')" onkeypress='validate(event)'>
 							</div>
   

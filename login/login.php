@@ -39,7 +39,7 @@
 							</div>
 
 							<div class="form-group">
-								<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
+								<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-key"></span></div>
 								<input type="password" class="form-control" placeholder="Password" id= "customer_pass" name="customer_pass" required>
 							</div>
 
