@@ -5,14 +5,13 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <?php
-//Getting neccessary files
 
-// require_once("../settings/core.php");
-
-//Enforcing admin only success
-// if (!(is_user_signed_in() && is_session_user_admin())) {
-// 	header("Location: login.php");
-// }
+session_start();
+   if (empty($_SESSION['customer_id'])  and empty($_SESSION['customer_name'])and   empty($_SESSION['customer_email'])  and empty($_SESSION['user_role']!= 1) )
+   {
+      header('Location:../view/home.php');
+   };
+   
 ?>
 <!DOCTYPE HTML>
 <html>
