@@ -4,7 +4,7 @@
 
 include("../controllers/customer_controller.php");
 
-// $errors = array();
+
 
 if(isset($_POST['register_user'])){
 
@@ -18,13 +18,15 @@ if(isset($_POST['register_user'])){
     $user_role = 2;
 
     registerCustomer_ctr($customer_name, $customer_email, $customer_pass, $customer_country, $customer_city,
-     $customer_contact,$user_role);
+     $customer_contact,$customer_image,$user_role);
 
 
     header ('Location:../login/login.php');
 
 
 
+} else{
+    header("Location:../login/register.php");
 }
 
 ?>

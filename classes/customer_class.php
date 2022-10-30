@@ -7,10 +7,12 @@ require('../settings/db_class.php');
 
     //add
     public function registerCustomer_cls($customer_name, $customer_email, $customer_pass, $customer_country, $customer_city,
-     $customer_contact,$user_role){
+     $customer_contact,$customer_image,$user_role){
         //write the sql
-         $sql = "INSERT INTO `customer` (`customer_name`,`customer_email`,`customer_pass`,`customer_country`,`customer_city`,`customer_contact`,`user_role`) 
-         VALUES ('$customer_name','$customer_email','$customer_pass','$customer_country','$customer_city','$customer_contact','$user_role')";
+         $sql = "INSERT INTO `customer` (`customer_name`,`customer_email`,`customer_pass`,`customer_country`,`customer_city`,
+         `customer_contact`,`customer_image`,`user_role`) 
+         VALUES ('$customer_name','$customer_email','$customer_pass','$customer_country','$customer_city','$customer_contact',
+         '$customer_image','$user_role')";
         //execute the sql
         return $this-> db_query($sql);
 
