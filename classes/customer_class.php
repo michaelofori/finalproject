@@ -1,6 +1,4 @@
 <?php
-
-
 require('../settings/db_class.php');
 
  class customerClass extends db_connection {
@@ -16,7 +14,6 @@ require('../settings/db_class.php');
         //execute the sql
         return $this-> db_query($sql);
 
-
     }
 
      //select
@@ -25,8 +22,7 @@ require('../settings/db_class.php');
         $sql = "SELECT * FROM `customer` WHERE `customer_id` = '$customer_id'";
         //execute the sql
         return $this-> db_fetch_all($sql);
-        
-
+       
     }
 
     //select
@@ -35,8 +31,7 @@ require('../settings/db_class.php');
         $sql = "SELECT * FROM `customer` WHERE `customer_email` = '$customer_email'";
         //execute the sql
         return $this-> db_fetch_one($sql);
-        
-
+       
     }
 
     public function selectAllCustomer(){
@@ -44,7 +39,6 @@ require('../settings/db_class.php');
         $sql= "SELECT * FROM `customer` ";
         //execute the sql
         return $this-> db_fetch_all($sql);
-
 
     }
 

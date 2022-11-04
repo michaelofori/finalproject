@@ -13,17 +13,17 @@ if(isset($_POST['login_user'])){
 
             if (password_verify($customer_pass2,$customer_pass) and $check['user_role']==1){
                 session_start();
-                $_SESSION['customer_id'] = $result['customer_id'];
-                $_SESSION['custmer_name'] = $result['customer_name'];
-                $_SESSION['customer_email'] = $result['customer_email'];
+                $_SESSION['customer_id'] = $check['customer_id'];
+                $_SESSION['customer_name'] = $check['customer_name'];
+                $_SESSION['customer_email'] = $check['customer_email'];
                 header('Location:../admin/brand.php');
     }
 
     else if (password_verify($customer_pass2,$customer_pass) and $check['user_role']!=1) {
       session_start();
-                $_SESSION['customer_id'] = $result['customer_id'];
-                $_SESSION['custmer_name'] = $result['customer_name'];
-                $_SESSION['customer_email'] = $result['customer_email'];
+                $_SESSION['customer_id'] = $check['customer_id'];
+                $_SESSION['customer_name'] = $check['customer_name'];
+                $_SESSION['customer_email'] = $check['customer_email'];
                header('Location:../view/home.php');
     }
     else{
@@ -32,5 +32,10 @@ if(isset($_POST['login_user'])){
       header('Location:../login/login.php');
     }  
   } 
+  else{
+    session_start();
+    $_SESSION['error'] = 'Invalid login details!';    
+    header('Location:../login/login.php');
+  }  
 }
 ?>

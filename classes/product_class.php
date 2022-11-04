@@ -1,8 +1,6 @@
-
 <?php
 // a class that extends the database connection and contains product methods
 // : add product brand/ add product category, add category etc.
-
 require('../settings/db_class.php');
 
 class product_class extends db_connection{
@@ -86,7 +84,6 @@ class product_class extends db_connection{
     product_price= '$pNum',product_desc= '$pDesc',product_keywords= '$pkey',product_image= '$folder_path'
     WHERE product_id = '$prod_id'";
 
-
     return $this->db_query($sql);
 
   }
@@ -96,12 +93,6 @@ class product_class extends db_connection{
     $data= $this->db_fetch_all($sql);
     return $data;
   }
-  
-
-
-
-    
+      
 }
-
-
 ?>

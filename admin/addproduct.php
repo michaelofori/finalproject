@@ -5,24 +5,30 @@ session_start();
       header('Location:../view/home.php');
    };
 ?>
+
 <!DOCTYPE HTML>
 <html>
-
 <head>
-	<title>Glance Design Dashboard an Admin Panel Category Flat Bootstrap Responsive Website Template | Forms :: w3layouts</title>
+	<title>add product</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="Glance Design Dashboard Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<meta name="keywords" content="admin" />
 	<script type="application/x-javascript">
 		addEventListener("load", function() {
 			setTimeout(hideURLbar, 0);
 		}, false);
-
 		function hideURLbar() {
 			window.scrollTo(0, 1);
 		}
 	</script>
+	
+	
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+	 rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+	<!-- JavaScript Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
+	integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/admincss/css/bootstrap.css" rel='stylesheet' type='text/css' />
@@ -31,7 +37,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 	<link href="../css/admincss/css/style.css" rel='stylesheet' type='text/css' />
 
 	<!-- font-awesome icons CSS -->
-	<link href="../css/admincss/css/font-awesome.css" rel="stylesheet">
+	<link href="../css/admincss/css/font-awesome.css" rel="stylesheet"/>
 	<!-- //font-awesome icons CSS -->
 
 	<!-- side nav css file -->
@@ -42,17 +48,18 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 	<script src="../css/admincss/js/jquery-1.11.1.min.js"></script>
 	<script src="../css/admincss/js/modernizr.custom.js"></script>
 
-	<script src="../css/admincss/js/auth.js"></script>
-
 	<!--webfonts-->
-	<link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
-	<!--//webfonts-->
+	<link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext"
+	 rel="stylesheet"/>
+	<!--webfonts-->
 
 	<!-- Metis Menu -->
 	<script src="../css/admincss/js/metisMenu.min.js"></script>
 	<script src="../css/admincss/js/custom.js"></script>
-	<link href="../css/admincss/css/custom.css" rel="stylesheet">
+	<link href="../css/admincss/css/custom.css" rel="stylesheet"/>
 	<!--//Metis Menu -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 
 </head>
 
@@ -69,7 +76,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="index.php"><span class="fa fa-area-chart"></span> SnT<span class="dashboard_text">Design Dashboard</span></a>
+						<h1><a class="navbar-brand" href="brand.php"><span class="fa fa-area-chart"></span> SnT <span class="dashboard_text">Design dashboard</span></a></h1>
 					</div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="sidebar-menu">
@@ -79,17 +86,17 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 									<i class="fa fa-dashboard"></i> <span>Dashboard</span>
 								</a>
 							</li>
-							<li class="treeview">
-								<a href="#">
-									<i class="fa fa-laptop"></i>
-									<span>Books</span>
-									<i class="fa fa-angle-left pull-right"></i>
-								</a>
-								<ul class="treeview-menu">
-									<li><a href="grids.php"><i class="fa fa-angle-right"></i> View brands</a></li>
-									<li><a href="addbrand.php"><i class="fa fa-angle-right"></i> Add brand</a></li>
-								</ul>
-							</li>
+						    <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-laptop"></i>
+                                    <span>Brand</span>
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="grids.php"><i class="fa fa-angle-right"></i> View Brands</a></li>
+                                    <li><a href="addbrand.php"><i class="fa fa-angle-right"></i> Add Brand</a></li>
+                                </ul>
+                            </li>
 
 							<li class="treeview">
                                 <a href="#">
@@ -127,7 +134,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
 							<li class="treeview">
 								<a href="#">
-									<i class="fa fa-envelope"></i> <span>Reviews</span>
+									<i class="fa fa-envelope"></i> <span>Feedback</span>
 									<i class="fa fa-angle-left pull-right"></i><small class="label pull-right label-info1">08</small><span class="label label-primary1 pull-right">02</span></a>
 								<ul class="treeview-menu">
 									<li><a href="inbox.php"><i class="fa fa-angle-right"></i> Reviews</a></li>
@@ -149,56 +156,11 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 				<!--toggle button start-->
 				<button id="showLeftPush"><i class="fa fa-bars"></i></button>
 				<!--toggle button end-->
-				<div class="profile_details_left">
-					<!--notifications of menu start -->
-					<ul class="nofitications-dropdown">
-						<li class="dropdown head-dpdn">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-envelope"></i><span class="badge">4</span></a>
-							<ul class="dropdown-menu">
-								<li>
-									<div class="notification_header">
-										<h3>You have 3 new messages</h3>
-									</div>
-								</li>
-								<li><a href="#">
-										<div class="user_img"><img src="../css/admincss/images/1.jpg" style="width:5em" alt=""></div>
-										<div class="notification_desc">
-											<p>Lorem ipsum dolor amet</p>
-											<p><span>1 hour ago</span></p>
-										</div>
-										<div class="clearfix"></div>
-									</a></li>
-								<li class="odd"><a href="#">
-										<div class="user_img"><img src="../css/admincss/images/4.jpg" alt=""></div>
-										<div class="notification_desc">
-											<p>Lorem ipsum dolor amet </p>
-											<p><span>1 hour ago</span></p>
-										</div>
-										<div class="clearfix"></div>
-									</a></li>
-								<li><a href="#">
-										<div class="user_img"><img src="../css/admincss/images/3.jpg" alt=""></div>
-										<div class="notification_desc">
-											<p>Lorem ipsum dolor amet </p>
-											<p><span>1 hour ago</span></p>
-										</div>
-										<div class="clearfix"></div>
-									</a></li>
-								<li>
-									<div class="notification_bottom">
-										<a href="#">See all messages</a>
-									</div>
-								</li>
-							</ul>
-						</li>
 
-					</ul>
-					<div class="clearfix"> </div>
-				</div>
-				<!--notification menu end -->
 				<div class="clearfix"> </div>
 			</div>
 			<div class="header-right">
+
 
 				<!--search-box-->
 				<div class="search-box">
@@ -220,9 +182,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<div class="profile_img">
 									<span class="prfil-img"><img src="../css/admincss/images/2.jpg" alt=""> </span>
 									<div class="user-name">
-										<?php
-										
-										?>
+
 										<span><?php 
                                         
                                         if(!empty($_SESSION['customer_name'])){
@@ -238,7 +198,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li>
 								<li> <a href="#"><i class="fa fa-user"></i> My Account</a> </li>
 								<li> <a href="#"><i class="fa fa-suitcase"></i> Profile</a> </li>
-
 								<?php echo "<li> <a href='../actions/logout.php' onclick='onsignout()' ><i class='fa fa-sign-out'></i> Logout</a> </li>";?>
 							</ul>
 						</li>
@@ -252,69 +211,116 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 		<!-- main content start-->
 		<div id="page-wrapper">
 			<div class="main-page">
-				<div class="forms">
-					<h2 class="title1">Forms</h2>
-					<div class="form-grids row widget-shadow" data-example-id="basic-forms">
-						<div class="form-title">
-							<h4>Basic Form :</h4>
-						</div>
-						<div class="form-body">
+				<div class="media">
+					<h2 class="title1">Upload a Product</h2>
+					<div class="bs-example5 widget-shadow" data-example-id="default-media">
+						<!-- Button trigger modal -->
+						
+							<form  action ="../actions/add_brand.php" method="post" >
+								<div class="mb-3">
+									<label for="title" class="form-label">Product Category</label>
+									<input type="text" class="form-control" id="name" name="brand_name" aria-describedby="emailHelp">
+								</div>
 
-							<table class="table">
-								<thead>
-									<tr>
-										<th scope="col">User Name</th>
-										<th scope="col">Order ID</th>
-										<th scope="col">Amount</th>
-										<th scope="col">Currency </th>
-										<th scope="col">Date of payment</th>
-									</tr>
-								</thead>
-								<tbody>
+								<div class="mb-3">
+									<label for="description" class="form-label">Product Brand</label>
+									<textarea class="form-control" id="description" name="description" rows="1"></textarea>
+								</div>
+
+								<div class="mb-3">
+									<label for="description" class="form-label">Product Title</label>
+									<textarea class="form-control" id="description" name="description" rows="1"></textarea>
+								</div>
+
+								<div class="mb-3">
+									<label for="price" class="form-label">Product price</label>
+									<input type="number" class="form-control" id="price" name="price" aria-describedby="emailHelp">
+								</div>
+
+								<div class="mb-3">
+									<label for="description" class="form-label">Product Description</label>
+									<textarea class="form-control" id="description" name="description" rows="3"></textarea>
+								</div>
+
+								<!-- <select class="form-select" aria-label="Default select example" name="status" id="cat"> -->
 								
-									<?php
-									// $orders = select_all_payment_ctr();
-									
-									// if ($orders) {
-									// 	foreach ($orders as $item) {
+								<!-- </select> -->
+								<div class="mb-3">
+									<label for="formFile" class="form-label">Product image</label>
+									<input class="form-control" type="file" accept="image/*" id="image">
+								</div>
 
-											
-									// 		$user_name= $item['f_name']." ". $item['l_name'];
-									// 		$order_id= $item["order_id"];
-									// 		$amount= $item["amount"];
-									// 		$pay_date= $item["payment_date"];
-									// 		$currency = $item["currency"];
-											
+								<div class="mb-3">
+									<label for="description" class="form-label">Product Keyword</label>
+									<textarea class="form-control" id="description" name="description" rows="1"></textarea>
+								</div>
 
-									// 		echo "<tr>";
-									// 		echo "<td>$user_name</td>\n";
-									// 		echo "<td>$order_id</td>\n";
-									// 		echo "<td>$amount</td>\n";
-									// 		echo "<td>$currency</td>\n";
-									// 		echo "<td> GHS $pay_date</td>\n";
+								<button type='submit' class='btn btn-primary' name="brand" >Submit</button>
+							</form>
 
-									// 		echo "<td>\n";
-											
-									// 		echo "</tr>";
-									// 	}
-									// } else {
-									// 	echo "<tr><td></td><td></td><td>No orders yet</td><td></td></tr>";
-									// }
-									?>
+							
+						
 
+							<!-- <form method="post">
+								<input type="hidden" name="p_id" id="p_id" value=" ">
+								<div class="mb-3">
+									<label for="title" class="form-label">Product name</label>
+									<input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" value=" ">
+								</div>
 
-								</tbody>
-							</table>
-						</div>
+								<div class="mb-3">
+									<label for="description" class="form-label">Product description</label>
+									<textarea class="form-control" id="description" name="description" rows="3" value=""></textarea>
+								</div>
+								<div class="mb-3">
+									<label for="price" class="form-label">Product price</label>
+									<input type="number" class="form-control" id="price" name="price" aria-describedby="emailHelp" value="">
+								</div>
+								
+								<div style="height:10px"></div>
+								<button type='submit' class='btn btn-primary' name="submit" ">Update</button>
+							</form> -->
+						
 					</div>
+					<!-- <h2 class="title1">Add Category</h2>
+					<div class="bs-example5 widget-shadow" data-example-id="default-media"> -->
+						<!-- Button trigger modal -->
+						<!-- <form  action ="../actions/add_category.php" method="post" >
+								<div class="mb-3">
+									<label for="title" class="form-label">Category name</label>
+									<input type="text" class="form-control" id="name" name="cat_name" aria-describedby="emailHelp">
+								</div> -->
+
+								<!-- <div class="mb-3">
+									<label for="description" class="form-label">Product description</label>
+									<textarea class="form-control" id="description" name="description" rows="3"></textarea>
+								</div> -->
+								<!-- <div class="mb-3">
+									<label for="price" class="form-label">Product price</label>
+									<input type="number" class="form-control" id="price" name="price" aria-describedby="emailHelp">
+								</div> -->
+								<!-- <select class="form-select" aria-label="Default select example" name="status" id="cat"> -->
+								
+								<!-- </select> -->
+								<!-- <div class="mb-3">
+									<label for="formFile" class="form-label">Product image</label>
+									<input class="form-control" type="file" accept="image/*" id="image">
+								</div> -->
+								<!-- <button type='submit' class='btn btn-primary' name="category" >Submit</button>
+							</form> -->
+
+						
+					</div>
+					<div class="clearfix"> </div>
 				</div>
 			</div>
 		</div>
-		<!--footer-->
-		<div class="footer">
+	</div>
+	<!--footer-->
+	<div class="footer">
 		<p>&copy; 2022 Middlemen Dashboard. All Rights Reserved |  <a href="https://www.instagram.com/p/Cd8ftLBMd4u/?igshid=YmMyMTA2M2Y=" target="_blank">Middlemen</a></p>
-		</div>
-		<!--//footer-->
+	</div>
+	<!--//footer-->
 	</div>
 
 	<!-- side nav js -->
@@ -355,7 +361,5 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="../css/admincss/js/bootstrap.js"> </script>
-
 </body>
-
 </html>

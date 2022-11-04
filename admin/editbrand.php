@@ -111,6 +111,18 @@ if ($_SESSION['customer_id'] == NULL and $_SESSION['customer_name'] == NULL and 
                             </li>
 
 							<li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-book"></i>
+                                    <span>Product</span>
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="viewcategory.php"><i class="fa fa-angle-right"></i> View Product</a></li>
+                                    <li><a href="addbrand.php"><i class="fa fa-angle-right"></i> Add Product</a></li>
+                                </ul>
+                            </li>
+
+							<li class="treeview">
 								<a href="#">
 									<i class="fa fa-edit"></i> <span>Purchase</span>
 									<i class="fa fa-angle-left pull-right"></i>
@@ -171,7 +183,11 @@ if ($_SESSION['customer_id'] == NULL and $_SESSION['customer_name'] == NULL and 
 									<span class="prfil-img"><img src="../css/admincss/images/2.jpg" alt=""> </span>
 									<div class="user-name">
 
-										<span>Administrator</span>
+										<span><?php 
+                                        
+                                        if(!empty($_SESSION['customer_name'])){
+                                            echo $_SESSION['customer_name'];
+                                        } ?></span>
 									</div>
 									<i class="fa fa-angle-down lnr"></i>
 									<i class="fa fa-angle-up lnr"></i>
