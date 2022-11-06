@@ -6,6 +6,4 @@ function update_category_ctr($cat_id,$cat_name){
     $editcategory = new product_class();
     return $editcategory->update_category_cls($cat_id,$cat_name);  
 }
-
 ?>
-

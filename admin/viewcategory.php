@@ -105,6 +105,18 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                             </li>
 
 							<li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-book"></i>
+                                    <span>Product</span>
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="viewproduct.php"><i class="fa fa-angle-right"></i> View Product</a></li>
+                                    <li><a href="addproduct.php"><i class="fa fa-angle-right"></i> Add Product</a></li>
+                                </ul>
+                            </li>
+
+							<li class="treeview">
 								<a href="#">
 									<i class="fa fa-edit"></i> <span>Purchase</span>
 									<i class="fa fa-angle-left pull-right"></i>
@@ -277,7 +289,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			<input type='submit' value='edit'  name='edit'>
 			</form></th>";
 
-									echo "<th><form action='delete_category.php' method='POST'>
+									echo "<th><form action='../actions/delete_category.php' method='POST'>
 			<input type='submit' value='delete'  name='delete'>
 			<input type='hidden' name='cat_id' value='" . $result[$i]['cat_id'] . "'></form></th>";
 									echo "</tr>";

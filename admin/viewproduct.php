@@ -3,7 +3,7 @@ session_start();
 if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and empty($_SESSION['customer_email']) and empty($_SESSION['user_role'] != 1)) {
 	header('Location:../view/home.php');
 };
-include("../controllers/display_category.php");
+include("../controllers/display_product.php");
 ?>
 
 <!DOCTYPE HTML>
@@ -101,6 +101,18 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <ul class="treeview-menu">
                                     <li><a href="viewcategory.php"><i class="fa fa-angle-right"></i> View Category</a></li>
                                     <li><a href="addbrand.php"><i class="fa fa-angle-right"></i> Add Category</a></li>
+                                </ul>
+                            </li>
+
+							<li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-book"></i>
+                                    <span>Product</span>
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="viewproduct.php"><i class="fa fa-angle-right"></i> View Product</a></li>
+                                    <li><a href="addproduct.php"><i class="fa fa-angle-right"></i> Add Product</a></li>
                                 </ul>
                             </li>
 
@@ -255,31 +267,37 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 		<!-- main content start-->
 		<div id="page-wrapper">
 			<div class="main-page">
-				<h2 class="title1">All Categories</h2>
+				<h2 class="title1">All Products</h2>
 				<div class="grids widget-shadow">
 
 					<table class="table">
 						<thead>
 							<tr>
-								<th scope="col">Categories</th>
+								<th scope="col">Products</th>
 							</tr>
 						</thead>
 						<tbody>
 							<?php
 							function displayAllCtr()
 							{
-								$result = selectAllCategoryCtr();
+								$result = selectAllProductCtr();
 								for ($i = 0; $i < count($result); $i++) {
 									echo "<tr>";
-									echo "<td>" . $result[$i]['cat_name'] . "</td>";
-									echo "<th><form action='edit_category.php' method='POST'>
-									<input type='hidden' name='cat_id' value='" . $result[$i]['cat_id'] . "'>
+									echo "<td>" . $result[$i]['product_title'] . "</td>";
+									echo "<td>" . $result[$i]['product_price'] . "</td>";
+									echo "<td>" . $result[$i]['product_desc'] . "</td>";
+
+									echo "<td><img src='" . $result[$i]['product_image'] . "' height='200px'></td>";
+									
+									echo "<td>" . $result[$i]['product_keywords'] . "</td>";
+									echo "<th><form action='edit_product.php' method='POST'>
+									<input type='hidden' name='product_id' value='" . $result[$i]['product_id'] . "'>
 			<input type='submit' value='edit'  name='edit'>
 			</form></th>";
 
-									echo "<th><form action='delete_category.php' method='POST'>
+									echo "<th><form action='../actions/delete_product.php' method='POST'>
 			<input type='submit' value='delete'  name='delete'>
-			<input type='hidden' name='cat_id' value='" . $result[$i]['cat_id'] . "'></form></th>";
+			<input type='hidden' name='product_id' value='" . $result[$i]['product_id'] . "'></form></th>";
 									echo "</tr>";
 								}
 							}

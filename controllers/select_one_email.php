@@ -7,40 +7,5 @@ function selectOneEmail_ctr($customer_email){
 
     return $oneemail->selectOneEmail($customer_email);
 
-    
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>

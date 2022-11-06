@@ -1,6 +1,4 @@
 <?php
-
-
 session_start();
    if (empty($_SESSION['customer_id'])  and empty($_SESSION['customer_name'])and   empty($_SESSION['customer_email'])  and empty($_SESSION['user_role']!= 1) )
    {

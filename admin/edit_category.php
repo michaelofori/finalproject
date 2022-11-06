@@ -1,6 +1,4 @@
 <?php
-
-
 session_start();
    if (empty($_SESSION['customer_id'])  and empty($_SESSION['customer_name'])and   empty($_SESSION['customer_email'])  and empty($_SESSION['user_role']!= 1) )
    {
@@ -10,7 +8,7 @@ session_start();
 require('../controllers/selectonecategory.php');
 
 if (isset($_POST['edit'])){
-    $cat_id = $_POST['cat_    id'];
+    $cat_id = $_POST['cat_id'];
     $result=selectOneCategoryCtr($cat_id);
 }
 ?>

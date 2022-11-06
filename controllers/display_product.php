@@ -2,8 +2,8 @@
 require("../classes/product_class.php");
 
 // insert
-function selectAllCategoryCtr(){
+function selectAllProductCtr(){
     $display= new product_class();
-    return $display->select_allcategories_cls();
+    return $display->select_allproduct_cls();
 }
 ?>

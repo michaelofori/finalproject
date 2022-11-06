@@ -4,6 +4,7 @@ session_start();
    {
       header('Location:../view/home.php');
    };
+   require( "../controllers/product_controller.php");
 ?>
 
 <!DOCTYPE HTML>
@@ -216,30 +217,54 @@ session_start();
 					<div class="bs-example5 widget-shadow" data-example-id="default-media">
 						<!-- Button trigger modal -->
 						
-							<form  action ="../actions/add_brand.php" method="post" >
-								<div class="mb-3">
+							<form  action ="../actions/add_product.php" method="post" enctype="multipart/form-data">
+							<label for="" class="form-label" > Select Category</label>
+								<select name= 'product_cat' >
+
+								<?php
+								$cat = select_all_categories_ctr();
+								$brand = select_all_brands_ctr();
+
+							
+
+									foreach($cat as $item){
+
+								?>
+								<option value=<?php  echo($item['cat_id'])?>><?php  echo($item['cat_name'])?></option>
+    						    <?php }?>
+								</select>
+									<br>
+									<label for="" class="form-label" > Select Brand</label>
+									<select name="product_brand" id="" >
+										<?php
+										foreach($brand as $item){
+										?>
+										<option value=<?php  echo($item['brand_id'])?>><?php  echo($item['brand_name'])?></option>
+										<?php }?>
+								</select>
+								<!-- <div class="mb-3">
 									<label for="title" class="form-label">Product Category</label>
-									<input type="text" class="form-control" id="name" name="brand_name" aria-describedby="emailHelp">
+									<input type="text" class="form-control" id="name" name="product_cat" aria-describedby="emailHelp">
 								</div>
 
 								<div class="mb-3">
 									<label for="description" class="form-label">Product Brand</label>
-									<textarea class="form-control" id="description" name="description" rows="1"></textarea>
-								</div>
+									<textarea class="form-control" id="description" name="product_brand" rows="1"></textarea>
+								</div> -->
 
 								<div class="mb-3">
 									<label for="description" class="form-label">Product Title</label>
-									<textarea class="form-control" id="description" name="description" rows="1"></textarea>
+									<textarea class="form-control" id="description" name="product_title" rows="1"></textarea>
 								</div>
 
 								<div class="mb-3">
 									<label for="price" class="form-label">Product price</label>
-									<input type="number" class="form-control" id="price" name="price" aria-describedby="emailHelp">
+									<input type="number" class="form-control" id="price" name="product_price" aria-describedby="emailHelp">
 								</div>
 
 								<div class="mb-3">
 									<label for="description" class="form-label">Product Description</label>
-									<textarea class="form-control" id="description" name="description" rows="3"></textarea>
+									<textarea class="form-control" id="description" name="product_desc" rows="3"></textarea>
 								</div>
 
 								<!-- <select class="form-select" aria-label="Default select example" name="status" id="cat"> -->
@@ -247,15 +272,15 @@ session_start();
 								<!-- </select> -->
 								<div class="mb-3">
 									<label for="formFile" class="form-label">Product image</label>
-									<input class="form-control" type="file" accept="image/*" id="image">
+									<input class="form-control" name="product_image" type="file"  id="image">
 								</div>
-
+								<!-- accept="image/*" -->
 								<div class="mb-3">
 									<label for="description" class="form-label">Product Keyword</label>
-									<textarea class="form-control" id="description" name="description" rows="1"></textarea>
+									<textarea class="form-control" id="description" name="product_keywords" rows="1"></textarea>
 								</div>
 
-								<button type='submit' class='btn btn-primary' name="brand" >Submit</button>
+								<button type='submit' class='btn btn-primary' name="product" >Submit</button>
 							</form>
 
 							
