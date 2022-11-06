@@ -296,6 +296,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			</form></th>";
 
 									echo "<th><form action='../actions/delete_product.php' method='POST'>
+									<input type='hidden' name='image' value='" . $result[$i]['product_image'] . "'>
 			<input type='submit' value='delete'  name='delete'>
 			<input type='hidden' name='product_id' value='" . $result[$i]['product_id'] . "'></form></th>";
 									echo "</tr>";

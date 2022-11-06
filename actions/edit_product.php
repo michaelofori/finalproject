@@ -11,6 +11,7 @@
    //  $product_image = $_POST['product_image'];
     $product_keywords = $_POST['product_keywords'];
 
+    $oldimage=$_POST['image'];
     $image = $_FILES['product_image']["name"];
     $tmp = $_FILES['product_image']["tmp_name"];
     function upload_file($directory,$subdir,$tempname,$image){
@@ -36,10 +37,12 @@
 
 
     if(
-      update_product_ctr($product_id,$product_cat,$product_brand,$product_title,$product_price,$product_desc,$product_keywords,$product_image) == true
+      update_product_ctr($product_id,$product_cat,$product_brand,$product_title,$product_price,$product_desc,$product_image,$product_keywords) == true
+      
       ){
+        
          header('Location:../admin/viewproduct.php');
- 
+         unlink($oldimage);
       } else{
 
       echo "cannot insert";
