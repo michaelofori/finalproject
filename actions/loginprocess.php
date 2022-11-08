@@ -24,7 +24,7 @@ if(isset($_POST['login_user'])){
                 $_SESSION['customer_id'] = $check['customer_id'];
                 $_SESSION['customer_name'] = $check['customer_name'];
                 $_SESSION['customer_email'] = $check['customer_email'];
-                header('Location:../view/all_products.php');
+                header('Location:../view/all_product.php');
     }
     else{
       session_start();
