@@ -75,7 +75,7 @@ class product_class extends db_connection{
     }
     function select_oneproduct_cls($product_id){
         $sql = "SELECT * FROM `products` WHERE `product_id` = '$product_id'";
-        return $this->db_fetch_all($sql);   
+        return $this->db_fetch_one($sql);   
   }
   function update_product_cls($product_id,$product_cat,$product_brand,$product_title,$product_price,$product_desc,$product_image,$product_keywords){
     $sql = "UPDATE `products` SET  `product_cat`='$product_cat',`product_brand`= '$product_brand', `product_title`= '$product_title', `product_price`= '$product_price', 
@@ -84,7 +84,7 @@ class product_class extends db_connection{
   }
 
   function search_product_cls($product_brand){
-    $sql = "SELECT * FROM products WHERE product_title LIKE '%$product_brand%'";
+    $sql = "SELECT * FROM `products` WHERE `product_title` LIKE '%$product_brand%'";
     return $this->db_fetch_all($sql);
   }   
    //delete
