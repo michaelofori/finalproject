@@ -1,6 +1,5 @@
 <?php
-// include("../controllers/customer_controller.php");
-include("../controllers/select_one_email.php");
+include("../controllers/customer_class.php");
 
 $customer_email = $_POST["customer_email"];
 $customer_pass2 = $_POST["customer_pass"];
@@ -24,7 +23,7 @@ if(isset($_POST['login_user'])){
                 $_SESSION['customer_id'] = $check['customer_id'];
                 $_SESSION['customer_name'] = $check['customer_name'];
                 $_SESSION['customer_email'] = $check['customer_email'];
-                header('Location:../view/all_product.php');
+               header('Location:../view/all_product.php');
     }
     else{
       session_start();

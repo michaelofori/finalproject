@@ -1,5 +1,5 @@
 <?php
- include("../controllers/delete_product.php");
+ include("../controllers/product_controller.php");
  
  $oldimage=$_POST['image'];
 

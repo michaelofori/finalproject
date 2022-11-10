@@ -1,5 +1,5 @@
 <?php
- include("../controllers/delete_category.php");
+ include("../controllers/product_controller.php");
  if(isset($_POST['delete'])){
     $cat_id = $_POST['cat_id'];
 

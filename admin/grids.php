@@ -3,7 +3,7 @@ session_start();
 if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and empty($_SESSION['customer_email']) and empty($_SESSION['user_role'] != 1)) {
 	header('Location:../view/home.php');
 };
-include("../controllers/display_brand.php");
+include("../controllers/product_controller.php");
 ?>
 
 <!DOCTYPE HTML>
@@ -280,7 +280,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<?php
 							function displayAllCtr()
 							{
-								$result = selectAllCtr();
+								$result = select_all_brands_ctr();
 								for ($i = 0; $i < count($result); $i++) {
 									echo "<tr>";
 									echo "<td>" . $result[$i]['brand_name'] . "</td>";
@@ -288,7 +288,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			<input type='submit' value='edit'  name='edit'>
 			<input type='hidden' name='brand_id' value='" . $result[$i]['brand_id'] . "'></form></th>";
 
-									echo "<th><form action='delete_brand.php' method='POST'>
+									echo "<th><form action='../actions/delete_brand.php' method='POST'>
 			<input type='submit' value='delete'  name='delete'>
 			<input type='hidden' name='brand_id' value='" . $result[$i]['brand_id'] . "'></form></th>";
 									echo "</tr>";

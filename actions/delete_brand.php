@@ -1,5 +1,5 @@
 <?php
- include("../controllers/delete_brand.php");
+ include("../controllers/product_controller.php");
  if(isset($_POST['delete'])){
     $brand_id = $_POST['brand_id'];
 

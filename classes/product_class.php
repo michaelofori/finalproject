@@ -13,7 +13,7 @@ class product_class extends db_connection{
       // The functions selects one brand from the database based on the id
       function select_onebrand_cls($brand_id){
         $sql = "SELECT * FROM `brands` WHERE `brand_id` = '$brand_id'";
-        return $this->db_fetch_all($sql);   
+        return $this->db_fetch_one($sql);   
     }
      // The functions selects all brands 
      function select_allbrand_cls(){
@@ -43,7 +43,7 @@ class product_class extends db_connection{
     //This function select one from the category table by the cat id
     function select_onecat_cls($cat_id){
         $sql = "SELECT * FROM `categories` WHERE `cat_id` = '$cat_id'";
-        return $this->db_fetch_all($sql);
+        return $this->db_fetch_one($sql);
     }
     function select_allcategories_cls(){
         $sql = "SELECT * FROM `categories`";
@@ -61,7 +61,7 @@ class product_class extends db_connection{
         return $this-> db_query($sql);
    }
 
-
+      
 
     //Products
     function add_product_cls($product_cat,$product_brand,$product_title,$product_price,$product_desc,$product_image,$product_keywords){

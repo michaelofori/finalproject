@@ -9,8 +9,10 @@ include("../controllers/product_controller.php");
         $product_desc = $_POST['product_desc'];
         $product_keywords = $_POST['product_keywords'];
 
+
         $image = $_FILES['product_image']["name"];
         $tmp = $_FILES['product_image']["tmp_name"];
+
         function upload_file($directory,$subdir,$tempname,$image){
             //check if the directory exists 
             //Then upload the file into the directory
@@ -32,7 +34,7 @@ include("../controllers/product_controller.php");
         
         $product_image=upload_file("Images","product",$tmp,$image);
    
-        add_product_ctr($product_cat,$product_brand,$product_title,$product_price,$product_desc,$product_image,$product_keywords);
+        $data=add_product_ctr($product_cat,$product_brand,$product_title,$product_price,$product_desc,$product_image,$product_keywords);
  
        header ('Location:../admin/viewproduct.php');
 

@@ -1,5 +1,5 @@
 <?php
- include("../controllers/edit_brand.php");
+ include("../controllers/product_controller.php");
  if(isset($_POST['edit'])){
     $brand_id = $_POST['brand_id'];
     $brand_name = $_POST['brand_name']; 

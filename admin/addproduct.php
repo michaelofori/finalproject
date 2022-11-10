@@ -217,7 +217,7 @@ session_start();
 					<div class="bs-example5 widget-shadow" data-example-id="default-media">
 						<!-- Button trigger modal -->
 						
-							<form  action ="../actions/add_product.php" method="post" enctype="multipart/form-data">
+							<form  action ="../actions/add_product.php" method="POST" enctype="multipart/form-data">
 							<label for="" class="form-label" > Select Category</label>
 								<select name= 'product_cat' >
 
@@ -272,7 +272,7 @@ session_start();
 								<!-- </select> -->
 								<div class="mb-3">
 									<label for="formFile" class="form-label">Product image</label>
-									<input class="form-control" name="product_image" type="file"  id="image">
+									<input class="form-control" type="file" name="product_image" id="image">
 								</div>
 								<!-- accept="image/*" -->
 								<div class="mb-3">

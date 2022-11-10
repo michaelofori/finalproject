@@ -3,7 +3,7 @@ session_start();
 if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and empty($_SESSION['customer_email']) and empty($_SESSION['user_role'] != 1)) {
 	header('Location:../view/home.php');
 };
-include("../controllers/display_product.php");
+include("../controllers/product_controller.php");
 ?>
 
 <!DOCTYPE HTML>
@@ -145,15 +145,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<!--left-fixed -navigation-->
 
-		<!-- header-starts -->
-		<div class="sticky-header header-section ">
-			<div class="header-left">
-
-				<!--toggle button start-->
-				<button id="showLeftPush"><i class="fa fa-bars"></i></button>
-				<!--toggle button end-->
-				<div class="profile_details_left">
-					<!--notifications of menu start -->
+		<!-- header-starts --> 
 					<ul class="nofitications-dropdown">
 						<li class="dropdown head-dpdn">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-envelope"></i><span class="badge">4</span></a>
@@ -280,13 +272,13 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<?php
 							function displayAllCtr()
 							{
-								$result = selectAllProductCtr();
+								$result = select_allproduct_ctr();
 								for ($i = 0; $i < count($result); $i++) {
 									echo "<tr>";
 									echo "<td>" . $result[$i]['product_title'] . "</td>";
 									echo "<td>" . $result[$i]['product_price'] . "</td>";
 									echo "<td>" . $result[$i]['product_desc'] . "</td>";
-
+                                     
 									echo "<td><img src='" . $result[$i]['product_image'] . "' height='200px'></td>";
 									
 									echo "<td>" . $result[$i]['product_keywords'] . "</td>";
@@ -296,7 +288,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			</form></th>";
 
 									echo "<th><form action='../actions/delete_product.php' method='POST'>
-									<input type='hidden' name='image' value='" . $result[$i]['product_image'] . "'>
+									<input type='hidden' name='product_image' value='" . $result[$i]['product_image'] . "'>
 			<input type='submit' value='delete'  name='delete'>
 			<input type='hidden' name='product_id' value='" . $result[$i]['product_id'] . "'></form></th>";
 									echo "</tr>";

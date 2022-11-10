@@ -1,5 +1,5 @@
 <?php
- include("../controllers/edit_category.php");
+ include("../controllers/product_controller.php");
  if(isset($_POST['edit'])){
     $cat_id = $_POST['cat_id'];
     $cat_name = $_POST['cat_name']; 
