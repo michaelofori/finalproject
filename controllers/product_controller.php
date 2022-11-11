@@ -6,7 +6,7 @@ require('../classes/product_class.php');
 function addBrandctr($brand_name){
     $add_clr= new product_class();
     return $add_clr->add_brand_cls($brand_name);
-    header ('Location:../admin/brand.php');
+    
 }
 
 function oneBrandctr($brand_id){
@@ -91,4 +91,8 @@ function delProduct_ctr($product_id){
   $delProduct = new product_class();
   return $delProduct->deleteProduct_cls($product_id);
 }
+
+
+
+
 ?>

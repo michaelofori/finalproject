@@ -55,9 +55,7 @@ class product_class extends db_connection{
     }
       //delete
       function deleteCategory_cls($cat_id){
-        //write the sql
         $sql= "DELETE FROM `categories` WHERE `cat_id` = '$cat_id'";
-        //execute the sql
         return $this-> db_query($sql);
    }
 
@@ -94,6 +92,8 @@ class product_class extends db_connection{
     //execute the sql
     return $this-> db_query($sql);
 }
-  
+
+
 }
+
 ?>

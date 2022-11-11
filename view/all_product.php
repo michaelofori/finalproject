@@ -1,5 +1,5 @@
 <?php
-	
+    include "../settings/core.php";	
 	require( "../controllers/product_controller.php");
 
 ?>
@@ -33,6 +33,7 @@
 
 <body>
     <!-- Topbar Start -->
+   
     <div class="container-fluid">
         <div class="row bg-secondary py-1 px-xl-5">
             <div class="col-lg-6 d-none d-lg-block">
@@ -48,8 +49,9 @@
                     <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" type="button">Sign in</button>
-                            <button class="dropdown-item" type="button">Sign up</button>
+                            <!-- <button class="dropdown-item" type="button">Sign in</button>
+                            <button class="dropdown-item" type="button">Sign up</button> -->
+                            <?php echo "<li> <a href='../actions/logout.php' onclick='onsignout()' ><i class='dropdown-item'></i> Logout</a> </li>";?>
                         </div>
                     </div>
                     <div class="btn-group mx-2">
@@ -464,7 +466,13 @@
                     <div class="product-img position-relative overflow-hidden">
                         <img class="img-fluid w-100" src="<?php echo ($item['product_image']); ?>" alt="">
                         <div class="product-action">
-                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
+                     
+                             <form action="../functions/add_to_cart.php" method="POST">
+                             <input type="hidden" name="p_id"  value=<?php echo($item['product_id'])?>>
+                            <button type ="submit" class="btn btn-outline-dark btn-square" name="addtocart" ><i class="fa fa-shopping-cart"></i></button>
+                            <input type="hidden" name="qty"  value= 1>
+                    </form>
+
                             <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
                             <a class="btn btn-outline-dark btn-square" href="single_product.php?product_id=<?php echo( $item['product_id']); ?>"><i class="fa fa-eye"></i></a>
                             <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>

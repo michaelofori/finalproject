@@ -1,5 +1,5 @@
 <?php
-include("../controllers/customer_class.php");
+include("../controllers/customer_controller.php");
 
 $customer_email = $_POST["customer_email"];
 $customer_pass2 = $_POST["customer_pass"];

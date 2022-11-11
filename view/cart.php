@@ -1,3 +1,8 @@
+<?php
+session_start();
+require( "../controllers/cart_controller.php");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,8 +32,8 @@
 </head>
 
 <body>
-    <!-- Topbar Start -->
-    <div class="container-fluid">
+     <!-- Topbar Start -->
+     <div class="container-fluid">
         <div class="row bg-secondary py-1 px-xl-5">
             <div class="col-lg-6 d-none d-lg-block">
                 <div class="d-inline-flex align-items-center h-100">
@@ -79,33 +84,35 @@
         <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
             <div class="col-lg-4">
                 <a href="" class="text-decoration-none">
-                    <span class="h1 text-uppercase text-primary bg-dark px-2">Multi</span>
-                    <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Shop</span>
+                    <span class="h1 text-uppercase text-primary bg-dark px-2">Kemdar</span>
+                    <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Electronics</span>
                 </a>
             </div>
             <div class="col-lg-4 col-6 text-left">
-                <form action="">
+                <form action="../functions/search_results.php" method="post">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for products">
-                        <div class="input-group-append">
-                            <span class="input-group-text bg-transparent text-primary">
-                                <i class="fa fa-search"></i>
+                        <input type="search" class="form-control" name="search" id="search" placeholder="Search for products">
+                        <div class="input-group-append"> 
+                            <span type="submit" class="input-group-text bg-transparent text-primary">
+                                <i  class="fa fa-search"></i>
                             </span>
                         </div>
+                        <button name="submit">search</button>
                     </div>
+                   
                 </form>
             </div>
             <div class="col-lg-4 col-6 text-right">
                 <p class="m-0">Customer Service</p>
-                <h5 class="m-0">+012 345 6789</h5>
+                <h5 class="m-0">+233 20 95 35 914</h5>
             </div>
         </div>
     </div>
     <!-- Topbar End -->
 
 
-    <!-- Navbar Start -->
-    <div class="container-fluid bg-dark mb-30">
+     <!-- Navbar Start -->
+     <div class="container-fluid bg-dark mb-30">
         <div class="row px-xl-5">
             <div class="col-lg-3 d-none d-lg-block">
                 <a class="btn d-flex align-items-center justify-content-between bg-primary w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; padding: 0 30px;">
@@ -118,40 +125,40 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dresses <i class="fa fa-angle-right float-right mt-1"></i></a>
                             <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
                                 <a href="" class="dropdown-item">Men's Dresses</a>
-                                <a href="" class="dropdown-item">Women's Dresses</a>
-                                <a href="" class="dropdown-item">Baby's Dresses</a>
+                                <!-- <a href="" class="dropdown-item">Women's Dresses</a>
+                                <a href="" class="dropdown-item">Baby's Dresses</a> -->
                             </div>
                         </div>
                         <a href="" class="nav-item nav-link">Shirts</a>
-                        <a href="" class="nav-item nav-link">Jeans</a>
+                        <!-- <a href="" class="nav-item nav-link">Jeans</a>
                         <a href="" class="nav-item nav-link">Swimwear</a>
                         <a href="" class="nav-item nav-link">Sleepwear</a>
                         <a href="" class="nav-item nav-link">Sportswear</a>
                         <a href="" class="nav-item nav-link">Jumpsuits</a>
                         <a href="" class="nav-item nav-link">Blazers</a>
                         <a href="" class="nav-item nav-link">Jackets</a>
-                        <a href="" class="nav-item nav-link">Shoes</a>
+                        <a href="" class="nav-item nav-link">Shoes</a> -->
                     </div>
                 </nav>
             </div>
             <div class="col-lg-9">
                 <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-0">
                     <a href="" class="text-decoration-none d-block d-lg-none">
-                        <span class="h1 text-uppercase text-dark bg-light px-2">Multi</span>
-                        <span class="h1 text-uppercase text-light bg-primary px-2 ml-n1">Shop</span>
+                        <span class="h1 text-uppercase text-dark bg-light px-2">Kemdar</span>
+                        <span class="h1 text-uppercase text-light bg-primary px-2 ml-n1">Electronics</span>
                     </a>
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="index.html" class="nav-item nav-link">Home</a>
+                            <a href="index.html" class="nav-item nav-link active">Home</a>
                             <a href="shop.html" class="nav-item nav-link">Shop</a>
                             <a href="detail.html" class="nav-item nav-link">Shop Detail</a>
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Pages <i class="fa fa-angle-down mt-1"></i></a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down mt-1"></i></a>
                                 <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                    <a href="cart.html" class="dropdown-item active">Shopping Cart</a>
+                                    <a href="cart.html" class="dropdown-item">Shopping Cart</a>
                                     <a href="checkout.html" class="dropdown-item">Checkout</a>
                                 </div>
                             </div>
@@ -193,6 +200,7 @@
     <!-- Cart Start -->
     <div class="container-fluid">
         <div class="row px-xl-5">
+             <!-- cart -->
             <div class="col-lg-8 table-responsive mb-5">
                 <table class="table table-light table-borderless table-hover text-center mb-0">
                     <thead class="thead-dark">
@@ -204,29 +212,58 @@
                             <th>Remove</th>
                         </tr>
                     </thead>
+                    <tr>
+                                    <?php
+                                    
+                            $prod= get_from_cart_ctr($_SESSION['customer_id']);
+
+
+                            foreach($prod as $item){
+
+                                ?>
                     <tbody class="align-middle">
-                        <tr>
-                            <td class="align-middle"><img src="img/product-1.jpg" alt="" style="width: 50px;"> Product Name</td>
-                            <td class="align-middle">$150</td>
+                        
+                            <td class="align-middle"><img src="<?php echo ($item['product_image']); ?>" alt="" style="width: 50px;"> <?php echo($item['product_title']) ?></td>
+                            <td class="align-middle"> <?php echo('$'); echo($item['products.product_price*cart.qty']); ?></td>
                             <td class="align-middle">
                                 <div class="input-group quantity mx-auto" style="width: 100px;">
                                     <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
+
+                                  
+
+                                        <button id="de" onclick="loadDoc2(<?php echo $item['product_id'];?>)" class="btn btn-sm btn-primary btn-minus" >
                                         <i class="fa fa-minus"></i>
                                         </button>
+                                        
                                     </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
+                                    <button class="entry value"><span><?php echo $item['qty'];?></span></button>
+                                    <!-- <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1"> -->
+
                                     <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
+                                   
+                                        <button  id="in" onclick="loadDoc(<?php echo $item['product_id'];?>)" class="btn btn-sm btn-primary btn-plus">
                                             <i class="fa fa-plus"></i>
                                         </button>
+
                                     </div>
                                 </div>
                             </td>
                             <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
+                            <td class="align-middle">
+                            <form action="../functions/remove_from_cart.php" method="post">
+                            <input type="hidden" name="p_id"  value=<?php echo($item['product_id'])?>>
+                                <button name="delcart" class="btn btn-sm btn-danger"><i class="fa fa-times">
+
+                                </i>
+                            </button>
+                            </form>
+                        </td>
+                                       
+                                       <?php
+                            }
+                            ?>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td class="align-middle"><img src="img/product-2.jpg" alt="" style="width: 50px;"> Product Name</td>
                             <td class="align-middle">$150</td>
                             <td class="align-middle">
@@ -246,8 +283,8 @@
                             </td>
                             <td class="align-middle">$150</td>
                             <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                        </tr>
-                        <tr>
+                        </tr> -->
+                        <!-- <tr>
                             <td class="align-middle"><img src="img/product-3.jpg" alt="" style="width: 50px;"> Product Name</td>
                             <td class="align-middle">$150</td>
                             <td class="align-middle">
@@ -267,8 +304,8 @@
                             </td>
                             <td class="align-middle">$150</td>
                             <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                        </tr>
-                        <tr>
+                        </tr> -->
+                        <!-- <tr>
                             <td class="align-middle"><img src="img/product-4.jpg" alt="" style="width: 50px;"> Product Name</td>
                             <td class="align-middle">$150</td>
                             <td class="align-middle">
@@ -288,8 +325,8 @@
                             </td>
                             <td class="align-middle">$150</td>
                             <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                        </tr>
-                        <tr>
+                        </tr> -->
+                        <!-- <tr>
                             <td class="align-middle"><img src="img/product-5.jpg" alt="" style="width: 50px;"> Product Name</td>
                             <td class="align-middle">$150</td>
                             <td class="align-middle">
@@ -309,10 +346,11 @@
                             </td>
                             <td class="align-middle">$150</td>
                             <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
+            <!-- cart -->
             <div class="col-lg-4">
                 <form class="mb-30" action="">
                     <div class="input-group">
@@ -436,6 +474,55 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    </script>
+                                <script>
+                        function loadDoc(id) {
+                        inputbx = document.getElementById("in").value;
+                        console.log(id);
+                        dataString = 'pid='+id +'&inputbx='+inputbx;
+                      
+
+                    $.ajax({
+                        type: "POST",
+                        url:"../actions/update_qty.php",
+                        data: dataString,
+                        cache:false,
+                        success:function(result){
+                        //alert(result);
+                        }
+
+
+      });
+     }
+        
+    </script>
+
+
+
+<script>
+                        function loadDoc2(id2) {
+                        
+                        inputbx2 = document.getElementById("de").value;
+                        dataString = 'pid2='+id2 +'&inputbx2='+inputbx2;
+                        console.log(id2);
+
+                    $.ajax({
+                        type: "POST",
+                        url:"../actions/update_qty.php",
+                        data: dataString,
+                        cache:false,
+                        success:function(result){
+                        //alert(result);
+                        }
+
+
+      });
+     }
+        
+    </script>
+
 </body>
 
 </html>
+
