@@ -68,7 +68,7 @@ function add_cart_ctr($p_id,$ip_add,$c_id,$qty){
 
   }
 
-  function count_cart_cls($c_id){
+  function count_cart_ctr($c_id){
     $count=new cart_class();
     return $count -> count_cart_cls($c_id);
 
@@ -86,6 +86,56 @@ function add_cart_ctr($p_id,$ip_add,$c_id,$qty){
     return $get_add->get_from_cart_cls($a);
     
     }
+
+    function total_cart_price_ctr($a){
+
+      $get_total = new cart_class();
+    
+      return $get_total->total_cart_price_cls($a);
+    
+    }
+
+    //order
+    function insert_orders_ctr($customer_id,$invoice_no,$order_date,$order_status){
+      $add = new cart_class();
+      return $add->insert_orders_cls($customer_id,$invoice_no,$order_date,$order_status);
+    }
+
+    function insert_payments_ctr($amt,$customer_id,$order_id,$payment_date)
+      {
+        $pay = new cart_class();
+        return $pay->insert_payments_cls($amt,$customer_id,$order_id,$payment_date);
+      }
+
+      function get_order_id_ctr(){
+          $py = new cart_class();
+          return $py->get_order_id();
+        }
+
+        function get_order_date_ctr(){
+            $piy = new cart_class();
+            return $piy->get_order_date();
+          }
+
+          function get_cart_details_ctr($c_id) {
+            $piy = new cart_class();
+            return $piy->get_cart_details($c_id);
+          }
+
+          function insert_orderdetails_ctr($order_id,$product_id,$qty)
+            {
+              $piy = new cart_class();
+              return $piy->insert_order_details_cls($order_id,$product_id,$qty);
+            }
+
+            function get_customers_ctr($customer_id){
+              $slect_cus = new cart_class();
+              
+              return $slect_cus->get_customers_cls($customer_id);
+              
+              }      
+
+    
   
 
 ?>

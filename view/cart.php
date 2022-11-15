@@ -1,6 +1,8 @@
 <?php
 session_start();
-require( "../controllers/cart_controller.php");
+require("../controllers/cart_controller.php");
+$c_id = $_SESSION['customer_id'];
+$count = count_cart_ctr($c_id);
 
 ?>
 <!DOCTYPE html>
@@ -12,13 +14,22 @@ require( "../controllers/cart_controller.php");
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -32,8 +43,8 @@ require( "../controllers/cart_controller.php");
 </head>
 
 <body>
-     <!-- Topbar Start -->
-     <div class="container-fluid">
+    <!-- Topbar Start -->
+    <div class="container-fluid">
         <div class="row bg-secondary py-1 px-xl-5">
             <div class="col-lg-6 d-none d-lg-block">
                 <div class="d-inline-flex align-items-center h-100">
@@ -92,14 +103,14 @@ require( "../controllers/cart_controller.php");
                 <form action="../functions/search_results.php" method="post">
                     <div class="input-group">
                         <input type="search" class="form-control" name="search" id="search" placeholder="Search for products">
-                        <div class="input-group-append"> 
+                        <div class="input-group-append">
                             <span type="submit" class="input-group-text bg-transparent text-primary">
-                                <i  class="fa fa-search"></i>
+                                <i class="fa fa-search"></i>
                             </span>
                         </div>
                         <button name="submit">search</button>
                     </div>
-                   
+
                 </form>
             </div>
             <div class="col-lg-4 col-6 text-right">
@@ -111,8 +122,8 @@ require( "../controllers/cart_controller.php");
     <!-- Topbar End -->
 
 
-     <!-- Navbar Start -->
-     <div class="container-fluid bg-dark mb-30">
+    <!-- Navbar Start -->
+    <div class="container-fluid bg-dark mb-30">
         <div class="row px-xl-5">
             <div class="col-lg-3 d-none d-lg-block">
                 <a class="btn d-flex align-items-center justify-content-between bg-primary w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; padding: 0 30px;">
@@ -152,7 +163,7 @@ require( "../controllers/cart_controller.php");
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="index.html" class="nav-item nav-link active">Home</a>
+                            <a href="../view/all_product.php" class="nav-item nav-link active">Home</a>
                             <a href="shop.html" class="nav-item nav-link">Shop</a>
                             <a href="detail.html" class="nav-item nav-link">Shop Detail</a>
                             <div class="nav-item dropdown">
@@ -200,184 +211,106 @@ require( "../controllers/cart_controller.php");
     <!-- Cart Start -->
     <div class="container-fluid">
         <div class="row px-xl-5">
-             <!-- cart -->
+            <!-- cart -->
             <div class="col-lg-8 table-responsive mb-5">
                 <table class="table table-light table-borderless table-hover text-center mb-0">
                     <thead class="thead-dark">
+                        <h4>Your shopping cart contains: <span><?php echo $count[0]["SUM(qty)"]; ?> Products</span></h4>
                         <tr>
                             <th>Products</th>
                             <th>Price</th>
                             <th>Quantity</th>
-                            <th>Total</th>
+
                             <th>Remove</th>
                         </tr>
                     </thead>
                     <tr>
-                                    <?php
-                                    
-                            $prod= get_from_cart_ctr($_SESSION['customer_id']);
+                        <?php
+
+                        $prod = get_from_cart_ctr($_SESSION['customer_id']);
 
 
-                            foreach($prod as $item){
+                        foreach ($prod as $item) {
 
-                                ?>
-                    <tbody class="align-middle">
-                        
-                            <td class="align-middle"><img src="<?php echo ($item['product_image']); ?>" alt="" style="width: 50px;"> <?php echo($item['product_title']) ?></td>
-                            <td class="align-middle"> <?php echo('$'); echo($item['products.product_price*cart.qty']); ?></td>
-                            <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
+                        ?>
+                            <tbody class="align-middle">
 
-                                  
+                                <td class="align-middle"><img src="<?php echo ($item['product_image']); ?>" alt="" style="width: 50px;"> <?php echo ($item['product_title']) ?></td>
+                                <td class="align-middle"> <?php echo ('Ghc');
+                                                            echo ($item['products.product_price*cart.qty']); ?></td>
+                                <td class="align-middle">
+                                    <div class="input-group quantity mx-auto" style="width: 100px;">
+                                        <div class="input-group-btn">
 
-                                        <button id="de" onclick="loadDoc2(<?php echo $item['product_id'];?>)" class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                        
+
+
+                                            <button id="de" onclick="loadDoc2(<?php echo $item['product_id']; ?>)" class="btn btn-sm btn-primary btn-minus">
+                                                <i class="fa fa-minus"></i>
+                                            </button>
+
+                                        </div>
+                                        <button class="entry value"><span><?php echo $item['qty']; ?></span></button>
+
+                                        <div class="input-group-btn">
+
+                                            <button id="in" onclick="loadDoc(<?php echo $item['product_id']; ?>)" class="btn btn-sm btn-primary btn-plus">
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+
+                                        </div>
                                     </div>
-                                    <button class="entry value"><span><?php echo $item['qty'];?></span></button>
-                                    <!-- <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1"> -->
+                                </td>
 
-                                    <div class="input-group-btn">
-                                   
-                                        <button  id="in" onclick="loadDoc(<?php echo $item['product_id'];?>)" class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
+                                <td class="align-middle">
+                                    <form action="../functions/remove_from_cart.php" method="post">
+                                        <input type="hidden" name="p_id" value=<?php echo ($item['product_id']) ?>>
+                                        <button name="delcart" class="btn btn-sm btn-danger"><i class="fa fa-times">
+
+                                            </i>
                                         </button>
+                                    </form>
+                                </td>
 
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle">
-                            <form action="../functions/remove_from_cart.php" method="post">
-                            <input type="hidden" name="p_id"  value=<?php echo($item['product_id'])?>>
-                                <button name="delcart" class="btn btn-sm btn-danger"><i class="fa fa-times">
-
-                                </i>
-                            </button>
-                            </form>
-                        </td>
-                                       
-                                       <?php
-                            }
+                            <?php
+                        }
                             ?>
-                        </tr>
-                        <!-- <tr>
-                            <td class="align-middle"><img src="img/product-2.jpg" alt="" style="width: 50px;"> Product Name</td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                        </tr> -->
-                        <!-- <tr>
-                            <td class="align-middle"><img src="img/product-3.jpg" alt="" style="width: 50px;"> Product Name</td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                        </tr> -->
-                        <!-- <tr>
-                            <td class="align-middle"><img src="img/product-4.jpg" alt="" style="width: 50px;"> Product Name</td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                        </tr> -->
-                        <!-- <tr>
-                            <td class="align-middle"><img src="img/product-5.jpg" alt="" style="width: 50px;"> Product Name</td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                        </tr> -->
+                    </tr>
+
                     </tbody>
                 </table>
             </div>
             <!-- cart -->
+            <!-- check out -->
             <div class="col-lg-4">
-                <form class="mb-30" action="">
-                    <div class="input-group">
-                        <input type="text" class="form-control border-0 p-4" placeholder="Coupon Code">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary">Apply Coupon</button>
-                        </div>
-                    </div>
-                </form>
+
                 <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Cart Summary</span></h5>
                 <div class="bg-light p-30 mb-5">
                     <div class="border-bottom pb-2">
                         <div class="d-flex justify-content-between mb-3">
+                        <?php
+							$tt = get_from_cart_ctr($c_id);
+							$total = total_cart_price_ctr($c_id);
+							foreach ($tt as $get) {
+
+							?>
                             <h6>Subtotal</h6>
-                            <h6>$150</h6>
+                            <h6> <span><?php echo $get['products.product_price*cart.qty']; ?></span></h6>
                         </div>
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-medium">Shipping</h6>
-                            <h6 class="font-weight-medium">$10</h6>
+                            <h6 class="font-weight-medium">Ghc 0.00</h6>
                         </div>
                     </div>
                     <div class="pt-2">
                         <div class="d-flex justify-content-between mt-2">
+                        <?php } ?>
                             <h5>Total</h5>
-                            <h5>$160</h5>
+                            <h5>GH¢ <?php echo $total["SUM(cart.qty*products.product_price)"] ?></h5>
                         </div>
-                        <button class="btn btn-block btn-primary font-weight-bold my-3 py-3">Proceed To Checkout</button>
+                        <button class="btn btn-block btn-primary font-weight-bold my-3 py-3">
+                        <a href="Payment.php" class="pay2" type="submit">Proceed To Checkout
+                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -475,54 +408,91 @@ require( "../controllers/cart_controller.php");
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 
+
+    <script>
+        function delDoc(id) {
+            dataString = 'info=' + id;
+            $.ajax({
+                type: "POST",
+                url: "../actions/del_cart.php",
+                data: dataString,
+                cache: false,
+                success: function(info) {
+                    alert(info);
+                    location.reload(true);
+                }
+            });
+        }
     </script>
-                                <script>
-                        function loadDoc(id) {
-                        inputbx = document.getElementById("in").value;
-                        console.log(id);
-                        dataString = 'pid='+id +'&inputbx='+inputbx;
-                      
+    <script>
+        function loadDoc(id) {
+            inputbx = document.getElementById("in").value;
+            console.log(id);
+            dataString = 'pid=' + id + '&inputbx=' + inputbx;
 
-                    $.ajax({
-                        type: "POST",
-                        url:"../actions/update_qty.php",
-                        data: dataString,
-                        cache:false,
-                        success:function(result){
-                        //alert(result);
-                        }
+            $.ajax({
+                type: "POST",
+                url: "../actions/update_qty.php",
+                data: dataString,
+                cache: false,
+                success: function(result) {
+                    //alert(result);
+                }
+            });
+        }
+    </script>
 
+    <script>
+        function loadDoc2(id2) {
 
-      });
-     }
-        
+            inputbx2 = document.getElementById("de").value;
+            dataString = 'pid2=' + id2 + '&inputbx2=' + inputbx2;
+            console.log(id2);
+
+            $.ajax({
+                type: "POST",
+                url: "../actions/update_qty.php",
+                data: dataString,
+                cache: false,
+                success: function(result) {
+                    //alert(result);
+                }
+            });
+        }
     </script>
 
 
+    <script>
+        function loadDoc3(id) {
 
-<script>
-                        function loadDoc2(id2) {
-                        
-                        inputbx2 = document.getElementById("de").value;
-                        dataString = 'pid2='+id2 +'&inputbx2='+inputbx2;
-                        console.log(id2);
+            dataString = 'inputbx=' + id;
 
-                    $.ajax({
-                        type: "POST",
-                        url:"../actions/update_qty.php",
-                        data: dataString,
-                        cache:false,
-                        success:function(result){
-                        //alert(result);
-                        }
+            $.ajax({
+                type: "GET",
+                url: "../actions/single_view.php",
+                data: dataString,
+                cache: false,
+                success: function(result) {
+                    //alert(result);
+                    window.log("../actions/single_view.php");
+                }
+            });
+        }
+    </script>
 
-
-      });
-     }
-        
+    <script type="text/javascript" src="../js/move-top.js"></script>
+    <script type="text/javascript" src="../js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1000);
+            });
+        });
     </script>
 
 </body>
 
 </html>
-

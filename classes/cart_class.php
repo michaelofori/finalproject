@@ -6,6 +6,12 @@ require('../settings/db_class.php');
 
 class cart_class extends db_connection{
 
+  function get_customers_cls($customer_id){
+
+    $sql ="SELECT * FROM `customer` WHERE customer_id='$customer_id'";
+
+    return $this->db_fetch_one($sql);
+}
     
 //cart
 function add_cart_cls($p_id,$ip_add,$c_id,$qty){
@@ -97,6 +103,68 @@ function get_from_cart_cls($a){
 
 }
   
+
+function total_cart_price_cls($a){
+  $sql = "SELECT SUM(cart.qty*products.product_price) FROM `cart` INNER JOIN `products` ON cart.p_id = products.product_id WHERE cart.c_id ='$a'";
+
+  return $this->db_fetch_one($sql);
+
+  
+}
+
+//orders
+
+function insert_orders_cls($customer_id,$invoice_no,$order_date,$order_status){
+  $sql="INSERT INTO `orders` (`customer_id`,`invoice_no`,`order_date`,`order_status`) 
+  VALUES ('$customer_id','$invoice_no','$order_date','$order_status')";
+  return $this->db_query($sql);
+}
+
+
+function insert_payments_cls($amt,$customer_id,$order_id,$payment_date){
+
+
+  $sql="INSERT INTO `payment`(`amt`, `customer_id`, `order_id`, `currency`, `payment_date`) 
+  VALUES ('$amt','$customer_id','$order_id','GHS','$payment_date')";
+
+  return $this->db_query($sql);
+}
+
+function get_order_date(){
+  $sql="SELECT `order_date` from `order`s ORDER BY `order_id` DESC LIMIT 1";
+  return $this->db_fetch_one($sql);
+}
+
+
+function get_order_id(){
+  $sql="SELECT order_id from orders ORDER BY order_id DESC LIMIT 1";
+  return $this->db_fetch_one($sql);
+
+}
+
+function get_cart_details($c_id){
+  $sql="SELECT `p_id`, `qty` FROM `cart` WHERE `c_id`='$c_id'";
+  return $this->db_fetch_one($sql);
+  }
+
+function get_last_order_cls($invoice){
+  $sql ="SELECT * FROM `orders` WHERE `invoice_no`= '$invoice'";
+  return $this->db_fetch_one($sql);
+  
+  }
+
+  function select_cart_user_cls($c_id){
+    $sql = "SELECT * FROM `cart`  WHERE `c_id` = '$c_id' ";
+  return $this->db_fetch_all($sql);
+   
+    
+}
+
+function insert_order_details_cls($order_id,$product_id,$qty){
+  $sql= "INSERT INTO `orderdetails`(`order_id`, `product_id`, `qty`) VALUES ('$order_id','$product_id','$qty')";
+  return $this->db_query($sql);
+}
+
 
 
 }
