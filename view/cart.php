@@ -308,7 +308,7 @@ $count = count_cart_ctr($c_id);
                             <h5>GH¢ <?php echo $total["SUM(cart.qty*products.product_price)"] ?></h5>
                         </div>
                         <button class="btn btn-block btn-primary font-weight-bold my-3 py-3">
-                        <a href="Payment.php" class="pay2" type="submit">Proceed To Checkout
+                        <a href="payment.php" class="pay2" type="submit">Proceed To Checkout
                         </a>
                         </button>
                     </div>
