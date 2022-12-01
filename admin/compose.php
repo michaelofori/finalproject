@@ -10,11 +10,11 @@ session_start();
 <html>
 
 <head>
-	<title>Glance Design Dashboard an Admin Panel Category Flat Bootstrap Responsive Website Template | Issues :: w3layouts</title>
+	<title>Compose</title>
+	<link rel="icon" href="../images/k.png" type="image/gif">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="Glance Design Dashboard Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	
 	<script type="application/x-javascript">
 		addEventListener("load", function() {
 			setTimeout(hideURLbar, 0);
@@ -123,16 +123,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<ul class="treeview-menu">
 									<li><a href="forms.php"><i class="fa fa-angle-right"></i> Orders</a></li>
 
-								</ul>
-							</li>
-
-							<li class="treeview">
-								<a href="#">
-									<i class="fa fa-envelope"></i> <span>Feedback</span>
-									<i class="fa fa-angle-left pull-right"></i><small class="label pull-right label-info1">08</small><span class="label label-primary1 pull-right">02</span></a>
-								<ul class="treeview-menu">
-									<li><a href="inbox.php"><i class="fa fa-angle-right"></i> Reviews</a></li>
-									<li><a href="compose.php"><i class="fa fa-angle-right"></i> Issues </a></li>
 								</ul>
 							</li>
 

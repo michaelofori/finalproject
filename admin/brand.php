@@ -1,17 +1,14 @@
 <?php
 session_start();
-   if (empty($_SESSION['customer_id'])  and empty($_SESSION['customer_name'])and   empty($_SESSION['customer_email'])  and empty($_SESSION['user_role']!= 1) )
-   {
+   if (empty($_SESSION['customer_id'])  and empty($_SESSION['customer_name'])and   empty($_SESSION['customer_email'])  and empty($_SESSION['user_role']!= 1) ){
       header('Location:../view/home.php');
    };
-
-   
 ?>
-
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Home</title>
+    <title>Admin Home</title>
+    <link rel="icon" href="../images/k.png" type="image/gif">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="admin" />
@@ -132,7 +129,7 @@ session_start();
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <h1><a class="navbar-brand" href="brand.php"><span class="fa fa-area-chart"></span> SnT <span class="dashboard_text">dashboard</span></a></h1>
+                        <h1><a class="navbar-brand" href="brand.php"><span class="fa fa-area-chart"></span> Kemdar <span class="dashboard_text">dashboard</span></a></h1>
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="sidebar-menu">
@@ -188,15 +185,6 @@ session_start();
                                     <li><a href="validation.php"><i class="fa fa-angle-right"></i> Transactions</a></li>
                                 </ul>
                             </li>
-                            <li class="treeview">
-                                <a href="#">
-                                    <i class="fa fa-envelope"></i> <span>Feedback </span>
-                                    <i class="fa fa-angle-left pull-right"></i><small class="label pull-right label-info1">08</small><span class="label label-primary1 pull-right">02</span></a>
-                                <ul class="treeview-menu">
-                                    <li><a href="inbox.php"><i class="fa fa-angle-right"></i> Reviews </a></li>
-                                    <li><a href="compose.php"><i class="fa fa-angle-right"></i> Issues </a></li>
-                                </ul>
-                            </li>
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
@@ -213,69 +201,12 @@ session_start();
                 <button id="showLeftPush"><i class="fa fa-bars"></i></button>
                 <!--toggle button end-->
                 <div class="profile_details_left">
-                    <!--notifications of menu start -->
-                    <!-- <ul class="nofitications-dropdown">
-                        <li class="dropdown head-dpdn">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-envelope"></i><span class="badge">4</span></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <div class="notification_header">
-                                        <h3>You have 3 new messages</h3>
-                                    </div>
-                                </li>
-                                <li><a href="#">
-                                        <div class="user_img"><img src="../css/admincss/images/1.jpg" alt=""></div>
-                                        <div class="notification_desc">
-                                            <p>Lorem ipsum dolor amet</p>
-                                            <p><span>1 hour ago</span></p>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </a></li>
-                                <li class="odd"><a href="#">
-                                        <div class="user_img"><img src="../css/admincss/images/4.jpg" alt=""></div>
-                                        <div class="notification_desc">
-                                            <p>Lorem ipsum dolor amet </p>
-                                            <p><span>1 hour ago</span></p>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </a></li>
-                                <li><a href="#">
-                                        <div class="user_img"><img src="../css/admincss/images/3.jpg" alt=""></div>
-                                        <div class="notification_desc">
-                                            <p>Lorem ipsum dolor amet </p>
-                                            <p><span>1 hour ago</span></p>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </a></li>
-                                <li>
-                                    <div class="notification_bottom">
-                                        <a href="#">See all messages</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul> -->
                     <div class="clearfix"> </div>
                 </div>
                 <!--notification menu end -->
                 <div class="clearfix"> </div>
             </div>
             <div class="header-right">
-
-
-                <!--search-box-->
-                <div class="search-box">
-                    <form class="input">
-                        <input class="sb-search-input input__field--madoka" placeholder="Search..." type="search" id="input-31" />
-                        <label class="input__label" for="input-31">
-                            <svg class="graphic" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
-                                <path d="m0,0l404,0l0,77l-404,0l0,-77z" />
-                            </svg>
-                        </label>
-                    </form>
-                </div>
-                <!--//end-search-box-->
 
                 <div class="profile_details">
                     <ul>

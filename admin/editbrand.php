@@ -10,6 +10,7 @@ if ($_SESSION['customer_id'] == NULL and $_SESSION['customer_name'] == NULL and 
 <html>
 <head>
 	<title>add product</title>
+	<link rel="icon" href="../images/k.png" type="image/gif">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="admin" />

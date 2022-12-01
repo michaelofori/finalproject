@@ -22,6 +22,7 @@ if (isset($_POST['edit'])){
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="../css/formcss/css/bootstrap.min.css">
   <title>Form</title>
+  <link rel="icon" href="../images/k.png" type="image/gif">
 </head>
 
 <body>

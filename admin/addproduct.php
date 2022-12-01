@@ -11,6 +11,7 @@ session_start();
 <html>
 <head>
 	<title>add product</title>
+	<link rel="icon" href="../images/k.png" type="image/gif">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="admin" />
@@ -132,16 +133,6 @@ session_start();
 									<li><a href="forms.php"><i class="fa fa-angle-right"></i> Orders</a></li>
 								</ul>
 							</li>
-
-							<li class="treeview">
-								<a href="#">
-									<i class="fa fa-envelope"></i> <span>Feedback</span>
-									<i class="fa fa-angle-left pull-right"></i><small class="label pull-right label-info1">08</small><span class="label label-primary1 pull-right">02</span></a>
-								<ul class="treeview-menu">
-									<li><a href="inbox.php"><i class="fa fa-angle-right"></i> Reviews</a></li>
-									<li><a href="compose.php"><i class="fa fa-angle-right"></i> Issues </a></li>
-								</ul>
-							</li>
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
@@ -220,15 +211,10 @@ session_start();
 							<form  action ="../actions/add_product.php" method="POST" enctype="multipart/form-data">
 							<label for="" class="form-label" > Select Category</label>
 								<select name= 'product_cat' >
-
 								<?php
 								$cat = select_all_categories_ctr();
 								$brand = select_all_brands_ctr();
-
-							
-
 									foreach($cat as $item){
-
 								?>
 								<option value=<?php  echo($item['cat_id'])?>><?php  echo($item['cat_name'])?></option>
     						    <?php }?>
@@ -242,16 +228,7 @@ session_start();
 										<option value=<?php  echo($item['brand_id'])?>><?php  echo($item['brand_name'])?></option>
 										<?php }?>
 								</select>
-								<!-- <div class="mb-3">
-									<label for="title" class="form-label">Product Category</label>
-									<input type="text" class="form-control" id="name" name="product_cat" aria-describedby="emailHelp">
-								</div>
-
-								<div class="mb-3">
-									<label for="description" class="form-label">Product Brand</label>
-									<textarea class="form-control" id="description" name="product_brand" rows="1"></textarea>
-								</div> -->
-
+					
 								<div class="mb-3">
 									<label for="description" class="form-label">Product Title</label>
 									<textarea class="form-control" id="description" name="product_title" rows="1"></textarea>
@@ -272,7 +249,7 @@ session_start();
 								<!-- </select> -->
 								<div class="mb-3">
 									<label for="formFile" class="form-label">Product image</label>
-									<input class="form-control" type="file" name="product_image" id="image">
+									<input class="form-control" type="file" name="product_image[]" required accept="image/*" id="image">
 								</div>
 								<!-- accept="image/*" -->
 								<div class="mb-3">

@@ -19,6 +19,7 @@ $cat_info=select_onecat_ctr($cat_id);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <title>Document</title>
+    <link rel="icon" href="../images/k.png" type="image/gif">
 </head>
 <body>
 <form class="col s12" action='../actions/update_cat.php' method='post'>
