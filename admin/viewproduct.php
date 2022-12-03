@@ -206,7 +206,7 @@ include("../controllers/product_controller.php");
 									echo "<td>" . $result[$i]['product_price'] . "</td>";
 									echo "<td>" . $result[$i]['product_desc'] . "</td>";
 
-									echo "<td><img src='../images/product/"  . $result[$i]['product_image']  . "' height='200px'></td>";
+									echo "<td><img src='../images/product/".$result[$i]['product_image']  . "' height='200px'></td>";
 
 									echo "<td>" . $result[$i]['product_keywords'] . "</td>";
 
