@@ -191,7 +191,7 @@ $product_id = $_GET['product_id'];
 
             <!-- Product Pricing -->
             <div class="product-price">
-                <span><?php echo (" $  ");
+                <span><?php echo (" Ghc  ");
                         echo ($prod['product_price']) ?></span>
                 <a href="#" class="cart-btn">Add to cart</a>
             </div>
