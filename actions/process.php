@@ -1,8 +1,6 @@
 <?php
   $curl = curl_init();
   
-
-
   curl_setopt_array($curl, array(
     CURLOPT_URL =>"https://api.paystack.co/transaction/verify/".$_GET['reference'],
     CURLOPT_RETURNTRANSFER => true,

@@ -71,7 +71,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<h1><a class="navbar-brand" href="index.php"><span class="fa fa-area-chart"></span> SnT<span class="dashboard_text">Design dashboard</span></a></h1>
+						<h1><a class="navbar-brand" href="index.php"><span class="fa fa-area-chart"></span> Kemdar<span class="dashboard_text">Dashboard</span></a></h1>
 					</div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="sidebar-menu">
@@ -88,7 +88,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 									<i class="fa fa-angle-left pull-right"></i>
 								</a>
 								<ul class="treeview-menu">
-									<li><a href="grids.php"><i class="fa fa-angle-right"></i> View books</a></li>
+									<li><a href="grids.php"><i class="fa fa-angle-right"></i> View Brands</a></li>
 									<li><a href="addbrand.php"><i class="fa fa-angle-right"></i> Add brand</a></li>
 								</ul>
 							</li>

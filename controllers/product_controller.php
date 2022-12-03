@@ -77,9 +77,9 @@ function delCategory_ctr($cat_id){
 }
 
 
-function update_product_ctr($product_id,$product_cat,$product_brand,$product_title,$product_price,$product_desc,$product_image,$product_keywords){
+function update_product_ctr($product_id,$product_title,$product_price,$product_desc,$product_keywords){
   $editproduct = new product_class();
-  return $editproduct->update_product_cls($product_id,$product_cat,$product_brand,$product_title,$product_price,$product_desc,$product_image,$product_keywords);  
+  return $editproduct->update_product_cls($product_id,$product_title,$product_price,$product_desc,$product_keywords);  
 }
 
 function search_product_ctr($product_brand){
@@ -92,6 +92,10 @@ function delProduct_ctr($product_id){
   return $delProduct->deleteProduct_cls($product_id);
 }
 
+function update_image_ctr($product_id,$product_image){
+  $editproductimage= new product_class();
+  return $editproductimage->update_product_image_cls($product_id,$product_image);
+}
 
 
 

@@ -13,7 +13,7 @@
       echo "Unable to delete image";
       }
    }
-   else if(!unlink("../images/adverts/".$img)){
+   else if(!unlink("../images/product/".$img)){
       if(delProduct_ctr($product_id)==TRUE){
          header('Location:../admin/viewproduct.php');
          }

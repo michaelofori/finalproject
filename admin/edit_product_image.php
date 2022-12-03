@@ -1,19 +1,29 @@
 <?php
 session_start();
-if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and empty($_SESSION['customer_email']) and empty($_SESSION['user_role'] != 1)) {
+if (empty($_SESSION['customer_id'])  and empty($_SESSION['customer_name']) and   empty($_SESSION['customer_email'])  and empty($_SESSION['user_role'] != 1)) {
 	header('Location:../view/home.php');
 };
-include("../controllers/product_controller.php");
+
+require('../controllers/product_controller.php');
+
+if (isset($_POST['edit_image'])) {
+	$product_id = $_POST['product_id'];
+
+	$result = update_image_ctr($product_id,$product_image);
+}
 ?>
-<!DOCTYPE HTML>
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-	<title>View Product</title>
+	<title>Admin - Update product</title>
 	<link rel="icon" href="../images/k.png" type="image/gif">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="admin" />
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Bootstrap CSS -->
+	<!-- <link rel="stylesheet" href="../css/formcss/css/bootstrap.min.css"> -->
 	<script type="application/x-javascript">
 		addEventListener("load", function() {
 			setTimeout(hideURLbar, 0);
@@ -23,6 +33,13 @@ include("../controllers/product_controller.php");
 			window.scrollTo(0, 1);
 		}
 	</script>
+
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+	<!-- JavaScript Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/admincss/css/bootstrap.css" rel='stylesheet' type='text/css' />
 
@@ -30,7 +47,7 @@ include("../controllers/product_controller.php");
 	<link href="../css/admincss/css/style.css" rel='stylesheet' type='text/css' />
 
 	<!-- font-awesome icons CSS -->
-	<link href="../css/admincss/css/font-awesome.css" rel="stylesheet">
+	<link href="../css/admincss/css/font-awesome.css" rel="stylesheet" />
 	<!-- //font-awesome icons CSS -->
 
 	<!-- side nav css file -->
@@ -42,16 +59,17 @@ include("../controllers/product_controller.php");
 	<script src="../css/admincss/js/modernizr.custom.js"></script>
 
 	<!--webfonts-->
-	<link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
-	<!--//webfonts-->
+	<link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet" />
+	<!--webfonts-->
 
 	<!-- Metis Menu -->
 	<script src="../css/admincss/js/metisMenu.min.js"></script>
 	<script src="../css/admincss/js/custom.js"></script>
-	<link href="../css/admincss/css/custom.css" rel="stylesheet">
+	<link href="../css/admincss/css/custom.css" rel="stylesheet" />
 	<!--//Metis Menu -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-	<script src="../css/admincss/js/submit.js"></script>
+
 
 </head>
 
@@ -68,7 +86,7 @@ include("../controllers/product_controller.php");
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<h1><a class="navbar-brand" href="brand.php"><span class="fa fa-area-chart"></span> Kemdar <span class="dashboard_text">dashboard</span></a></h1>
+						<h1><a class="navbar-brand" href="brand.php"><span class="fa fa-area-chart"></span> Kemdar <span class="dashboard_text">Design dashboard</span></a></h1>
 					</div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="sidebar-menu">
@@ -86,7 +104,7 @@ include("../controllers/product_controller.php");
 								</a>
 								<ul class="treeview-menu">
 									<li><a href="grids.php"><i class="fa fa-angle-right"></i> View Brands</a></li>
-									<li><a href="addbrand.php"><i class="fa fa-angle-right"></i> Add brand</a></li>
+									<li><a href="addbrand.php"><i class="fa fa-angle-right"></i> Add Brand</a></li>
 								</ul>
 							</li>
 
@@ -121,10 +139,8 @@ include("../controllers/product_controller.php");
 								</a>
 								<ul class="treeview-menu">
 									<li><a href="forms.php"><i class="fa fa-angle-right"></i> Orders</a></li>
-									<li><a href="validation.php"><i class="fa fa-angle-right"></i> Transactions</a></li>
 								</ul>
 							</li>
-
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
@@ -140,13 +156,24 @@ include("../controllers/product_controller.php");
 				<!--toggle button start-->
 				<button id="showLeftPush"><i class="fa fa-bars"></i></button>
 				<!--toggle button end-->
-				<div class="profile_details_left">
-					<div class="clearfix"> </div>
-				</div>
-				<!--notification menu end -->
+
 				<div class="clearfix"> </div>
 			</div>
 			<div class="header-right">
+
+
+				<!--search-box-->
+				<div class="search-box">
+					<form class="input">
+						<input class="sb-search-input input__field--madoka" placeholder="Search..." type="search" id="input-31" />
+						<label class="input__label" for="input-31">
+							<svg class="graphic" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
+								<path d="m0,0l404,0l0,77l-404,0l0,-77z" />
+							</svg>
+						</label>
+					</form>
+				</div>
+				<!--//end-search-box-->
 
 				<div class="profile_details">
 					<ul>
@@ -155,7 +182,6 @@ include("../controllers/product_controller.php");
 								<div class="profile_img">
 									<span class="prfil-img"><img src="../css/admincss/images/2.jpg" alt=""> </span>
 									<div class="user-name">
-										<script src="../js/auth.js"></script>
 
 										<span><?php
 
@@ -172,7 +198,6 @@ include("../controllers/product_controller.php");
 								<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li>
 								<li> <a href="#"><i class="fa fa-user"></i> My Account</a> </li>
 								<li> <a href="#"><i class="fa fa-suitcase"></i> Profile</a> </li>
-
 								<?php echo "<li> <a href='../actions/logout.php' onclick='onsignout()' ><i class='fa fa-sign-out'></i> Logout</a> </li>"; ?>
 							</ul>
 						</li>
@@ -186,62 +211,38 @@ include("../controllers/product_controller.php");
 		<!-- main content start-->
 		<div id="page-wrapper">
 			<div class="main-page">
-				<h2 class="title1">All Products</h2>
-				<div class="grids widget-shadow">
+				<div class="media">
+					<h2 class="title1">Update Product Image</h2>
+					<div class="bs-example5 widget-shadow" data-example-id="default-media">
+						<!-- Button trigger modal -->
 
-					<table class="table">
-						<thead>
-							<tr>
-								<th scope="col">Products</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php
-							function displayAllCtr()
-							{
-								$result = select_allproduct_ctr();
-								for ($i = 0; $i < count($result); $i++) {
-									echo "<tr>";
-									echo "<td>" . $result[$i]['product_title'] . "</td>";
-									echo "<td>" . $result[$i]['product_price'] . "</td>";
-									echo "<td>" . $result[$i]['product_desc'] . "</td>";
+						<form action="../actions/edit_product.php" method="POST" enctype="multipart/form-data">
 
-									echo "<td><img src='../images/product/"  . $result[$i]['product_image']  . "' height='200px'></td>";
+							<input type="hidden" name="product_id" value=" <?php echo $_POST['product_id']; ?> ">
+							<input type="hidden" name="product_id" value=" <?php echo $_POST['product_id']; ?> ">
+							
+							<div class="mb-3">
+								<label for="formFile" class="form-label">Product image</label>
+								<input class="form-control" name="product_image[]" type="file" id="image">
+							</div>
 
-									echo "<td>" . $result[$i]['product_keywords'] . "</td>";
+							<button type='submit' class='btn btn-primary' name="edit_image">Submit</button>
+						</form>
 
-									echo "<th><form action='edit_product.php' method='POST'>
-									<input type='hidden' name='product_id' value='" . $result[$i]['product_id'] . "'>
-			<input type='submit' value='edit'  name='edit'>
-			</form></th>";
-
-									echo "<th><form action='edit_product_image.php' method='POST'>
-									<input type='hidden' name='product_id' value='" . $result[$i]['product_id'] . "'>
-									<input type='hidden' name='product_image' value='" . $result[$i]['product_image'] . "'>
-			<input type='submit' value='edit image' name='edit_image'>
-			</form></th>";
-
-									echo "<th><form action='../actions/delete_product.php' method='POST'>
-									<input type='hidden' name='product_image' value='" . $result[$i]['product_image'] . "'>
-			<input type='submit' value='delete'  name='delete'>
-			<input type='hidden' name='product_id' value='" . $result[$i]['product_id'] . "'></form></th>";
-									echo "</tr>";
-								}
-							}
-							displayAllCtr();
-							?>
-						</tbody>
-					</table>
+					</div>
 				</div>
-
+				<div class="clearfix"> </div>
 			</div>
 		</div>
-		<!--footer-->
-		<div class="footer">
-			<p>&copy; 2022 Middlemen Dashboard. All Rights Reserved | <a href="https://www.instagram.com/p/Cd8ftLBMd4u/?igshid=YmMyMTA2M2Y=" target="_blank">Middlemen</a></p>
-		</div>
-		<!--//footer-->
 	</div>
+	</div>
+	<!--footer-->
+	<div class="footer">
+		<p>&copy; 2022 Middlemen Dashboard. All Rights Reserved | <a href="https://www.instagram.com/p/Cd8ftLBMd4u/?igshid=YmMyMTA2M2Y=" target="_blank">Middlemen</a></p>
+	</div>
+	<!--//footer-->
+	</div>
+
 	<!-- side nav js -->
 	<script src='../css/admincss/js/SidebarNav.min.js' type='text/javascript'></script>
 	<script>
@@ -256,6 +257,7 @@ include("../controllers/product_controller.php");
 		var menuLeft = document.getElementById('cbp-spmenu-s1'),
 			showLeftPush = document.getElementById('showLeftPush'),
 			body = document.body;
+
 		showLeftPush.onclick = function() {
 			classie.toggle(this, 'active');
 			classie.toggle(body, 'cbp-spmenu-push-toright');
@@ -279,6 +281,7 @@ include("../controllers/product_controller.php");
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="../css/admincss/js/bootstrap.js"> </script>
+
 </body>
 
 </html>

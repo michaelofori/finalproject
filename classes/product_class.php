@@ -75,9 +75,9 @@ class product_class extends db_connection{
         $sql = "SELECT * FROM `products` WHERE `product_id` = '$product_id'";
         return $this->db_fetch_one($sql);   
   }
-  function update_product_cls($product_id,$product_cat,$product_brand,$product_title,$product_price,$product_desc,$product_image,$product_keywords){
-    $sql = "UPDATE `products` SET  `product_cat`='$product_cat',`product_brand`= '$product_brand', `product_title`= '$product_title', `product_price`= '$product_price', 
-    `product_desc`= '$product_desc',`product_image`= '$product_image',`product_keywords`= '$product_keywords' WHERE `product_id` = '$product_id'";
+  function update_product_cls($product_id,$product_title,$product_price,$product_desc,$product_keywords){
+    $sql = "UPDATE `products` SET  `product_title`= '$product_title', `product_price`= '$product_price', 
+    `product_desc`= '$product_desc',`product_keywords`= '$product_keywords' WHERE `product_id` = '$product_id'";
     return $this->db_query($sql);
   }
 
@@ -93,6 +93,10 @@ class product_class extends db_connection{
     return $this-> db_query($sql);
 }
 
+function update_product_image_cls($product_id,$product_image){
+  $sql="UPDATE `products` SET `product_image`='$product_image' WHERE `product_id` = '$product_id'";
+  return $this->db_query($sql);
+}
 
 }
 

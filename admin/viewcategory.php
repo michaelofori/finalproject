@@ -88,8 +88,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 									<i class="fa fa-angle-left pull-right"></i>
 								</a>
 								<ul class="treeview-menu">
-									<li><a href="grids.php"><i class="fa fa-angle-right"></i> View books</a></li>
-									<li><a href="addbrand.php"><i class="fa fa-angle-right"></i> Add brand</a></li>
+									<li><a href="grids.php"><i class="fa fa-angle-right"></i> View Brands</a></li>
+									<li><a href="addbrand.php"><i class="fa fa-angle-right"></i> Add Brands</a></li>
 								</ul>
 							</li>
 
