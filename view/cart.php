@@ -2,6 +2,7 @@
 session_start();
 require("../controllers/cart_controller.php");
 
+
 $c_id = $_SESSION['customer_id'];
 $count = count_cart_ctr($c_id);
 
@@ -41,61 +42,61 @@ $count = count_cart_ctr($c_id);
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+        <!-- <script src="https://js.paystack.co/v1/inline.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
 </head>
 
 <body>
     <!-- Topbar Start -->
     <div class="container-fluid">
-        <div class="row bg-secondary py-1 px-xl-5">
-            <div class="col-lg-6 d-none d-lg-block">
-                <div class="d-inline-flex align-items-center h-100">
-                    <a class="text-body mr-3" href="all_product.php">Home</a>
-                    <a class="text-body mr-3" href="contact.php">Contact</a>
-                </div>
-            </div>
-            <div class="col-lg-6 text-center text-lg-right">
-                <div class="d-inline-flex align-items-center">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <?php echo "<li> <a href='../actions/logout.php' onclick='onsignout()' ><i class='dropdown-item'></i> Logout</a> </li>"; ?>
-                        </div>
+            <div class="row bg-secondary py-1 px-xl-5">
+                <div class="col-lg-6 d-none d-lg-block">
+                    <div class="d-inline-flex align-items-center h-100">
+                        <a class="text-body mr-3" href="all_product.php">Home</a>
+                        <a class="text-body mr-3" href="contact.php">Contact</a>
                     </div>
                 </div>
-                <div class="d-inline-flex align-items-center d-block d-lg-none">
-                    <a href="" class="btn px-0 ml-2">
-                        <i class="fas fa-shopping-cart text-dark"></i>
-                        <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
-                    </a>
+                <div class="col-lg-6 text-center text-lg-right">
+                    <div class="d-inline-flex align-items-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                            <?php echo "<li> <a href='../actions/logout.php' onclick='onsignout()' ><i class='dropdown-item'></i> Logout</a> </li>";?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-inline-flex align-items-center d-block d-lg-none">
+                        <a href="" class="btn px-0 ml-2">
+                            <i class="fas fa-shopping-cart text-dark"></i>
+                            <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
-            <div class="col-lg-4">
-                <a href="all_product.php" class="text-decoration-none">
-                    <span class="h1 text-uppercase text-primary bg-dark px-2">Kemdar</span>
-                    <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Electronics</span>
-                </a>
-            </div>
-            <div class="col-lg-4 col-6 text-left">
+            <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
+                <div class="col-lg-4">
+                    <a href="all_product.php" class="text-decoration-none">
+                        <span class="h1 text-uppercase text-primary bg-dark px-2">Kemdar</span>
+                        <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Electronics</span>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-6 text-left">
                 <form action="../functions/search_results.php" method="post">
                     <div class="input-group">
                         <input type="search" class="form-control" name="search" id="search" placeholder="Search for products">
-                        <button name="submit">search</button>
-                    </div>
+                        <button  name="submit">search</button>
+                    </div> 
                 </form>
             </div>
-            <div class="col-lg-4 col-6 text-right">
-                <p class="m-0">Customer Service</p>
-                <h5 class="m-0">+233 20 95 35 914</h5>
+                <div class="col-lg-4 col-6 text-right">
+                    <p class="m-0">Customer Service</p>
+                    <h5 class="m-0">+233 20 95 35 914</h5>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- Topbar End -->
-
-
-    <!-- Navbar Start -->
-    <div class="container-fluid bg-dark mb-30">
+        <!-- Topbar End -->
+ <!-- Navbar Start -->
+ <div class="container-fluid bg-dark mb-30">
         <div class="row px-xl-5">
             <div class="col-lg-3 d-none d-lg-block">
                 <a class="btn d-flex align-items-center justify-content-between bg-primary w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; padding: 0 30px;">
@@ -103,6 +104,7 @@ $count = count_cart_ctr($c_id);
                     <i class="fa fa-angle-down text-dark"></i>
                 </a>
                 <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
+                   
                 </nav>
             </div>
             <div class="col-lg-9">
@@ -409,48 +411,7 @@ $count = count_cart_ctr($c_id);
             });
         });
     </script>
-    <!--quantity-->
-    <script>
-        $('.value-plus').on('click', function() {
-            var divUpd = $(this).parent().find('.value'),
-                newVal = parseInt(divUpd.text(), 10) + 1;
-            divUpd.text(newVal);
-        });
 
-        $('.value-minus').on('click', function() {
-            var divUpd = $(this).parent().find('.value'),
-                newVal = parseInt(divUpd.text(), 10) - 1;
-            if (newVal >= 1) divUpd.text(newVal);
-        });
-    </script>
-    <!--quantity-->
-    <script>
-        $(document).ready(function(c) {
-            $('.close1').on('click', function(c) {
-                $('.rem1').fadeOut('slow', function(c) {
-                    $('.rem1').remove();
-                });
-            });
-        });
-    </script>
-    <script>
-        $(document).ready(function(c) {
-            $('.close2').on('click', function(c) {
-                $('.rem2').fadeOut('slow', function(c) {
-                    $('.rem2').remove();
-                });
-            });
-        });
-    </script>
-    <script>
-        $(document).ready(function(c) {
-            $('.close3').on('click', function(c) {
-                $('.rem3').fadeOut('slow', function(c) {
-                    $('.rem3').remove();
-                });
-            });
-        });
-    </script>
 
 </body>
 
