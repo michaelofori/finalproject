@@ -321,8 +321,10 @@ $total = 0;
 
             event.preventDefault();
             let handler = PaystackPop.setup({
-                key: 'pk_live_bd5356607a881f3a0d6843b75d3172b74b9675cd',
-                // key: 'pk_test_2f4f689442f4751d03e7f9d680a26a38bba21720', // Replace with your public key
+                 key: 'pk_test_8e719889d1e48a17729f97da94a5ac2e7cac9857',
+                
+                // key: 'pk_live_bd5356607a881f3a0d6843b75d3172b74b9675cd',
+               
                 email: document.getElementById("email-address").value,
                 amount: document.getElementById("amount").value * 100,
                 ref: '' + Math.floor((Math.random() * 1000000000) + 1),
@@ -330,16 +332,17 @@ $total = 0;
                 // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
                 // label: "Optional string that replaces customer email"
                 onClose: function() {
-                    alert('Window closed.');
+                    
                 },
                 callback: function(response){
 
-                    alert("payment have been made"+ response.reference);
+
+                    
                     $.ajax({
                     url:"../actions/process.php?reference="+ response.reference,
                     method:'GET',
                     success: function (response){
-                        document.getElementById("stripe-login").submit();
+                        window.location.href="payment_success.php";
                     }
 
             });
