@@ -30,7 +30,7 @@ require("../controllers/product_controller.php");
 
  
 
-/* CSS */
+
 <style>
 .button-29 {
   align-items: center;
